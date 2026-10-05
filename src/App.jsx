@@ -7,18 +7,22 @@ import LiveMapPage from './features/live-map/LiveMapPage';
 import SimulationPage from './features/simulation/SimulationPage';
 import IncidentsPage from './features/incidents/IncidentsPage';
 
+import { ThemeProvider } from './context/ThemeContext';
+import RoutesPage from './pages/RoutesPage';
+
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
         {/* Public Landing Page */}
         <Route path="/" element={<Home />} />
 
         {/* Internal Operations Control Center Shell */}
         <Route element={<MainLayout />}>
-          {/* Jayasri Routes */}
+          {/* Operations Routes */}
           <Route path="/dashboard" element={<ComingSoon pageTitle="Operations Dashboard" />} />
-          <Route path="/routes" element={<ComingSoon pageTitle="Routes Management" />} />
+          <Route path="/routes" element={<RoutesPage />} />
           <Route path="/settings" element={<ComingSoon pageTitle="System Settings" />} />
           <Route path="/about" element={<ComingSoon pageTitle="About BUSFLOW" />} />
 
@@ -36,5 +40,6 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  );
+  </ThemeProvider>
+);
 }

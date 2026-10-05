@@ -1,140 +1,141 @@
 import React from 'react';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
+  const { theme, toggleTheme } = useTheme();
+  const isLight = theme === 'light';
+
   return (
     <header
       style={{
-        height: '60px',
-        backgroundColor: '#060c17',
-        borderBottom: '1px solid #1e293b',
+        height: 'var(--header-height, 56px)',
+        backgroundColor: 'var(--header-bg)',
+        borderBottom: '1px solid var(--border-color)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 1.25rem',
+        justifyContent: 'flex-end',
+        padding: '0 2rem',
         position: 'sticky',
         top: 0,
-        zIndex: 10
+        zIndex: 30,
+        transition: 'background-color 0.2s ease, border-color 0.2s ease'
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <button
-          type="button"
-          onClick={onToggleSidebar}
-          title="Toggle Sidebar"
-          style={{
-            background: 'none',
-            border: 'none',
-            color: '#94a3b8',
-            fontSize: '1.25rem',
-            cursor: 'pointer',
-            padding: '0.2rem'
-          }}
-        >
-          ☰
-        </button>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
-          <div
-            style={{
-              width: '30px',
-              height: '30px',
-              borderRadius: '8px',
-              backgroundColor: '#059669',
-              color: '#ffffff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1.125rem'
-            }}
-          >
-            🚌
-          </div>
-          <div>
-            <div style={{ fontSize: '1.125rem', fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              BUSFLOW
-            </div>
-            <div style={{ fontSize: '0.65rem', color: '#94a3b8', fontWeight: 500 }}>
-              Tamil Nadu State Transport
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        {/* Sun/Moon Dark Theme Switcher */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+        {/* Real Working Light / Dark Mode Toggle Pill */}
         <div
+          onClick={toggleTheme}
           style={{
             display: 'flex',
             alignItems: 'center',
-            backgroundColor: '#0f172a',
-            border: '1px solid #1e293b',
+            backgroundColor: isLight ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.06)',
             borderRadius: '9999px',
-            padding: '0.2rem 0.35rem',
-            gap: '0.35rem',
-            fontSize: '0.8125rem'
+            padding: '3px',
+            border: '1px solid var(--border-color)',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease'
           }}
+          title={isLight ? 'Switch to Dark Theme' : 'Switch to Light Theme'}
         >
-          <span style={{ opacity: 0.6, cursor: 'pointer' }}>☀️</span>
+          {/* Sun Icon */}
           <div
             style={{
               width: '24px',
               height: '24px',
               borderRadius: '50%',
-              backgroundColor: '#1e293b',
+              backgroundColor: isLight ? '#ffffff' : 'transparent',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#f8fafc',
-              fontSize: '0.75rem'
+              fontSize: '12px',
+              boxShadow: isLight ? '0 1px 4px rgba(0, 0, 0, 0.15)' : 'none',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            ☀️
+          </div>
+
+          {/* Moon Icon */}
+          <div
+            style={{
+              width: '24px',
+              height: '24px',
+              borderRadius: '50%',
+              backgroundColor: !isLight ? '#0c1a1d' : 'transparent',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '12px',
+              boxShadow: !isLight ? '0 0 6px rgba(0, 0, 0, 0.5)' : 'none',
+              transition: 'all 0.2s ease'
             }}
           >
             🌙
           </div>
         </div>
 
-        {/* Notification Bell */}
-        <div style={{ position: 'relative', cursor: 'pointer' }}>
-          <span style={{ fontSize: '1.125rem', color: '#94a3b8' }}>🔔</span>
+        {/* Notification Bell with red dot */}
+        <div
+          style={{
+            position: 'relative',
+            cursor: 'pointer',
+            padding: '4px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Notifications"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+          </svg>
           <span
             style={{
               position: 'absolute',
-              top: '-2px',
-              right: '-2px',
-              width: '8px',
-              height: '8px',
+              top: '2px',
+              right: '2px',
+              width: '7px',
+              height: '7px',
+              backgroundColor: '#ef4444',
               borderRadius: '50%',
-              backgroundColor: '#ef4444'
+              boxShadow: '0 0 4px #ef4444'
             }}
           />
         </div>
 
-        {/* Tamil Nadu State Transport Seal Badge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderLeft: '1px solid #1e293b', paddingLeft: '1rem' }}>
-          <div
+        {/* Official Tamil Nadu Government Emblem & Identity */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <img
+            src="/tn-emblem.png"
+            alt="Government of Tamil Nadu"
             style={{
               width: '32px',
               height: '32px',
-              borderRadius: '50%',
-              backgroundColor: '#fef08a',
-              border: '2px solid #eab308',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '0.75rem',
-              fontWeight: 800,
-              color: '#854d0e',
-              overflow: 'hidden'
+              objectFit: 'contain',
+              display: 'block'
             }}
-          >
-            🏛️
-          </div>
-          <div style={{ textAlign: 'left' }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f8fafc', lineHeight: 1.2 }}>
+          />
+          <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+            <span
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'var(--text-heading)',
+                lineHeight: 1.15
+              }}
+            >
               Tamil Nadu
-            </div>
-            <div style={{ fontSize: '0.65rem', color: '#94a3b8' }}>
+            </span>
+            <span
+              style={{
+                fontSize: '0.68rem',
+                color: 'var(--text-secondary)',
+                lineHeight: 1.15
+              }}
+            >
               State Transport Corporation
-            </div>
+            </span>
           </div>
         </div>
       </div>
