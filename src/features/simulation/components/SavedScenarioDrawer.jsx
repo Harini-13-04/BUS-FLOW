@@ -24,10 +24,10 @@ export default function SavedScenarioDrawer({ isOpen, onClose, savedScenarios = 
         style={{
           width: '100%',
           maxWidth: '560px',
-          backgroundColor: '#0b121e',
-          border: '1px solid #1e293b',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-color)',
           borderRadius: 'var(--radius-lg)',
-          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.85)',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
           overflow: 'hidden'
         }}
         onClick={(e) => e.stopPropagation()}
@@ -42,7 +42,7 @@ export default function SavedScenarioDrawer({ isOpen, onClose, savedScenarios = 
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#94a3b8',
+                color: 'var(--text-secondary)',
                 fontSize: '1.25rem',
                 cursor: 'pointer',
                 padding: '0.2rem 0.5rem'
@@ -51,7 +51,7 @@ export default function SavedScenarioDrawer({ isOpen, onClose, savedScenarios = 
               ✕
             </button>
           }
-          style={{ backgroundColor: '#0b121e', border: 'none', padding: '1.25rem' }}
+          style={{ backgroundColor: 'var(--bg-card)', border: 'none', padding: '1.25rem' }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
             {savedScenarios.map((item) => (
@@ -62,16 +62,16 @@ export default function SavedScenarioDrawer({ isOpen, onClose, savedScenarios = 
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   padding: '0.875rem 1rem',
-                  backgroundColor: '#0f172a',
-                  border: '1px solid #1e293b',
+                  backgroundColor: 'var(--bg-surface-secondary)',
+                  border: '1px solid var(--border-subtle)',
                   borderRadius: 'var(--radius-md)'
                 }}
               >
                 <div>
-                  <div style={{ fontSize: '0.875rem', fontWeight: 700, color: '#f8fafc' }}>
+                  <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-heading)' }}>
                     {item.title}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.2rem' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
                     {item.route} • {item.type} • {item.date}
                   </div>
                 </div>

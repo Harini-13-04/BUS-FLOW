@@ -44,24 +44,25 @@ export default function DashboardKPI({ kpi }) {
   return (
     <div
       style={{
-        backgroundColor: '#0c1421',
-        border: '1px solid #172336',
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
         borderRadius: '12px',
         padding: '1.1rem 1.25rem',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         gap: '1rem',
-        transition: 'border-color 0.15s, transform 0.15s',
+        transition: 'border-color 0.15s, transform 0.15s, box-shadow 0.15s',
         position: 'relative',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        boxShadow: 'var(--shadow-card)'
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = '#22324b';
+        e.currentTarget.style.borderColor = 'var(--border-light)';
         e.currentTarget.style.transform = 'translateY(-1px)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = '#172336';
+        e.currentTarget.style.borderColor = 'var(--border-color)';
         e.currentTarget.style.transform = 'none';
       }}
     >
@@ -89,7 +90,7 @@ export default function DashboardKPI({ kpi }) {
             style={{
               fontSize: '1.75rem',
               fontWeight: 800,
-              color: '#ffffff',
+              color: 'var(--text-heading)',
               lineHeight: 1.15,
               letterSpacing: '-0.02em'
             }}
@@ -99,7 +100,7 @@ export default function DashboardKPI({ kpi }) {
           <div
             style={{
               fontSize: '0.8rem',
-              color: '#94a3b8',
+              color: 'var(--text-secondary)',
               marginTop: '0.15rem',
               fontWeight: 500
             }}
@@ -134,7 +135,7 @@ export default function DashboardKPI({ kpi }) {
       </div>
 
       {/* Right Chevron */}
-      <div style={{ color: '#475569', display: 'flex', alignItems: 'center' }}>
+      <div style={{ color: 'var(--text-dim)', display: 'flex', alignItems: 'center' }}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 18 15 12 9 6" />
         </svg>

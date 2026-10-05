@@ -25,17 +25,17 @@ export default function ScenarioControls({
         <button
           type="button"
           onClick={onReset}
-          style={{ background: 'none', border: 'none', color: '#94a3b8', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+          style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
         >
           🔄 Reset
         </button>
       }
-      style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '1rem' }}
+      style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '1rem', boxShadow: 'var(--shadow-card)' }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
         {/* Select Route */}
         <div>
-          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.25rem' }}>
+          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>
             Select Route
           </label>
           <select
@@ -44,9 +44,9 @@ export default function ScenarioControls({
             style={{
               width: '100%',
               padding: '0.45rem 0.65rem',
-              backgroundColor: '#0f172a',
-              color: '#f8fafc',
-              border: '1px solid #1e293b',
+              backgroundColor: 'var(--bg-input)',
+              color: 'var(--text-primary)',
+              border: '1px solid var(--border-color)',
               borderRadius: 'var(--radius-md)',
               fontSize: '0.8125rem',
               fontWeight: 600,
@@ -61,7 +61,7 @@ export default function ScenarioControls({
 
         {/* Simulation Type Segmented Buttons */}
         <div>
-          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.25rem' }}>
+          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>
             Simulation Type
           </label>
           <div style={{ display: 'flex', gap: '0.35rem' }}>
@@ -71,9 +71,9 @@ export default function ScenarioControls({
               style={{
                 flex: 1,
                 padding: '0.4rem 0.2rem',
-                backgroundColor: simType === 'demand' ? '#10b981' : '#0f172a',
-                color: simType === 'demand' ? '#031019' : '#94a3b8',
-                border: simType === 'demand' ? '1px solid #10b981' : '1px solid #1e293b',
+                backgroundColor: simType === 'demand' ? 'var(--busflow-green)' : 'var(--bg-surface-secondary)',
+                color: simType === 'demand' ? '#ffffff' : 'var(--text-secondary)',
+                border: simType === 'demand' ? '1px solid var(--busflow-green)' : '1px solid var(--border-color)',
                 borderRadius: 'var(--radius-md)',
                 fontSize: '0.7rem',
                 fontWeight: 700,
@@ -93,9 +93,9 @@ export default function ScenarioControls({
               style={{
                 flex: 1,
                 padding: '0.4rem 0.2rem',
-                backgroundColor: simType === 'incident' ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
-                color: simType === 'incident' ? '#10b981' : '#94a3b8',
-                border: simType === 'incident' ? '1px solid #10b981' : '1px solid #1e293b',
+                backgroundColor: simType === 'incident' ? 'var(--primary-accent-bg)' : 'var(--bg-surface-secondary)',
+                color: simType === 'incident' ? 'var(--busflow-green)' : 'var(--text-secondary)',
+                border: simType === 'incident' ? '1px solid var(--busflow-green)' : '1px solid var(--border-color)',
                 borderRadius: 'var(--radius-md)',
                 fontSize: '0.7rem',
                 fontWeight: 700,
@@ -115,9 +115,9 @@ export default function ScenarioControls({
               style={{
                 flex: 1,
                 padding: '0.4rem 0.2rem',
-                backgroundColor: simType === 'diversion' ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
-                color: simType === 'diversion' ? '#10b981' : '#94a3b8',
-                border: simType === 'diversion' ? '1px solid #10b981' : '1px solid #1e293b',
+                backgroundColor: simType === 'diversion' ? 'var(--primary-accent-bg)' : 'var(--bg-surface-secondary)',
+                color: simType === 'diversion' ? 'var(--busflow-green)' : 'var(--text-secondary)',
+                border: simType === 'diversion' ? '1px solid var(--busflow-green)' : '1px solid var(--border-color)',
                 borderRadius: 'var(--radius-md)',
                 fontSize: '0.7rem',
                 fontWeight: 700,
@@ -136,19 +136,19 @@ export default function ScenarioControls({
 
         {/* Time Range */}
         <div>
-          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.25rem' }}>
+          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>
             Time Range
           </label>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#0f172a', padding: '0.45rem 0.65rem', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b', fontSize: '0.8125rem', color: '#f8fafc' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--bg-surface-secondary)', padding: '0.45rem 0.65rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontSize: '0.8125rem', color: 'var(--text-primary)' }}>
             <span>📅</span> 10:00 AM – 12:00 PM
           </div>
         </div>
 
         {/* Demand Slider */}
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>
             <span>Demand Increase</span>
-            <span style={{ color: '#f8fafc', fontWeight: 800 }}>+{demandPct}%</span>
+            <span style={{ color: 'var(--text-heading)', fontWeight: 800 }}>+{demandPct}%</span>
           </div>
           <input
             type="range"
@@ -156,9 +156,9 @@ export default function ScenarioControls({
             max="100"
             value={demandPct}
             onChange={(e) => onDemandChange && onDemandChange(Number(e.target.value))}
-            style={{ width: '100%', accentColor: '#10b981', cursor: 'pointer' }}
+            style={{ width: '100%', accentColor: 'var(--busflow-green)', cursor: 'pointer' }}
           />
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: '#64748b', marginTop: '0.15rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
             <span>0%</span>
             <span>25%</span>
             <span>50%</span>
@@ -169,20 +169,20 @@ export default function ScenarioControls({
 
         {/* Additional Option Toggles matching reference screenshot 3 */}
         <div>
-          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.35rem' }}>
+          <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.35rem' }}>
             Additional Options
           </label>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', fontSize: '0.75rem', color: '#cbd5e1', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', fontSize: '0.75rem', color: 'var(--text-primary)', flexWrap: 'wrap' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', cursor: 'pointer' }}>
-              <input type="checkbox" checked={includeIncidents} onChange={() => setIncludeIncidents(!includeIncidents)} style={{ accentColor: '#10b981' }} />
+              <input type="checkbox" checked={includeIncidents} onChange={() => setIncludeIncidents(!includeIncidents)} style={{ accentColor: 'var(--busflow-green)' }} />
               Include Incidents
             </label>
             <label style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', cursor: 'pointer' }}>
-              <input type="checkbox" checked={includeDiversion} onChange={() => setIncludeDiversion(!includeDiversion)} style={{ accentColor: '#10b981' }} />
+              <input type="checkbox" checked={includeDiversion} onChange={() => setIncludeDiversion(!includeDiversion)} style={{ accentColor: 'var(--busflow-green)' }} />
               Include Diversion
             </label>
             <label style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', cursor: 'pointer' }}>
-              <input type="checkbox" checked={weatherImpact} onChange={() => setWeatherImpact(!weatherImpact)} style={{ accentColor: '#10b981' }} />
+              <input type="checkbox" checked={weatherImpact} onChange={() => setWeatherImpact(!weatherImpact)} style={{ accentColor: 'var(--busflow-green)' }} />
               Weather Impact
             </label>
           </div>
@@ -195,9 +195,9 @@ export default function ScenarioControls({
           style={{
             width: '100%',
             padding: '0.65rem',
-            backgroundColor: isRunning ? '#1e293b' : '#10b981',
-            color: isRunning ? '#cbd5e1' : '#031019',
-            border: 'none',
+            backgroundColor: isRunning ? 'var(--bg-surface-secondary)' : '#10b981',
+            color: isRunning ? 'var(--text-primary)' : '#ffffff',
+            border: isRunning ? '1px solid var(--border-color)' : 'none',
             borderRadius: 'var(--radius-md)',
             fontWeight: 800,
             fontSize: '0.875rem',
@@ -221,8 +221,8 @@ export default function ScenarioControls({
             style={{
               width: '100%',
               padding: '0.55rem',
-              backgroundColor: 'rgba(37, 99, 235, 0.2)',
-              color: '#60a5fa',
+              backgroundColor: 'rgba(37, 99, 235, 0.15)',
+              color: '#2563eb',
               border: '1px solid #2563eb',
               borderRadius: 'var(--radius-md)',
               fontWeight: 800,

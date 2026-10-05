@@ -26,10 +26,10 @@ export default function CompareScenarioModal({ isOpen, onClose, scenarios }) {
         style={{
           width: '100%',
           maxWidth: '820px',
-          backgroundColor: '#0b121e',
-          border: '1px solid #1e293b',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-color)',
           borderRadius: 'var(--radius-lg)',
-          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.85)',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
           overflow: 'hidden'
         }}
         onClick={(e) => e.stopPropagation()}
@@ -44,7 +44,7 @@ export default function CompareScenarioModal({ isOpen, onClose, scenarios }) {
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#94a3b8',
+                color: 'var(--text-secondary)',
                 fontSize: '1.25rem',
                 cursor: 'pointer',
                 padding: '0.2rem 0.5rem'
@@ -53,69 +53,69 @@ export default function CompareScenarioModal({ isOpen, onClose, scenarios }) {
               ✕
             </button>
           }
-          style={{ backgroundColor: '#0b121e', border: 'none', padding: '1.25rem' }}
+          style={{ backgroundColor: 'var(--bg-card)', border: 'none', padding: '1.25rem' }}
         >
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginTop: '0.5rem' }}>
             {/* Strategy A */}
-            <div style={{ backgroundColor: '#0f172a', border: '1px solid #10b981', borderRadius: 'var(--radius-md)', padding: '1rem' }}>
+            <div style={{ backgroundColor: 'var(--bg-surface-secondary)', border: '1px solid #10b981', borderRadius: 'var(--radius-md)', padding: '1rem' }}>
               <div style={{ display: 'inline-block', backgroundColor: 'rgba(16, 185, 129, 0.15)', color: '#10b981', fontSize: '0.7rem', fontWeight: 700, padding: '0.2rem 0.5rem', borderRadius: '4px', marginBottom: '0.5rem' }}>
                 PRIMARY STRATEGY
               </div>
-              <div style={{ fontSize: '0.9375rem', fontWeight: 800, color: '#f8fafc', marginBottom: '0.35rem' }}>
+              <div style={{ fontSize: '0.9375rem', fontWeight: 800, color: 'var(--text-heading)', marginBottom: '0.35rem' }}>
                 {scenarioA.name.split(':')[0]}
               </div>
-              <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '1rem', lineHeight: 1.4 }}>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: 1.4 }}>
                 {scenarioA.description}
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.8125rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1e293b', paddingBottom: '0.4rem' }}>
-                  <span style={{ color: '#94a3b8' }}>Headway Variance:</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.4rem' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>Headway Variance:</span>
                   <span style={{ fontWeight: 800, color: '#10b981' }}>{scenarioA.simulatedMetrics.headwayVarianceMin} min</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1e293b', paddingBottom: '0.4rem' }}>
-                  <span style={{ color: '#94a3b8' }}>Bunching Risk:</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.4rem' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>Bunching Risk:</span>
                   <span style={{ fontWeight: 800, color: '#10b981' }}>{scenarioA.simulatedMetrics.bunchingRisk.split(' ')[0]}</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1e293b', paddingBottom: '0.4rem' }}>
-                  <span style={{ color: '#94a3b8' }}>Excess Pass. Wait:</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.4rem' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>Excess Pass. Wait:</span>
                   <span style={{ fontWeight: 800, color: '#10b981' }}>{scenarioA.simulatedMetrics.excessPassengerWaitMin} min</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.2rem' }}>
-                  <span style={{ color: '#94a3b8' }}>Recovery Time:</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>Recovery Time:</span>
                   <span style={{ fontWeight: 800, color: '#10b981' }}>{scenarioA.simulatedMetrics.fleetRecoveryTimeMin} min</span>
                 </div>
               </div>
             </div>
 
             {/* Strategy B */}
-            <div style={{ backgroundColor: '#0f172a', border: '1px solid #3b82f6', borderRadius: 'var(--radius-md)', padding: '1rem' }}>
-              <div style={{ display: 'inline-block', backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', fontSize: '0.7rem', fontWeight: 700, padding: '0.2rem 0.5rem', borderRadius: '4px', marginBottom: '0.5rem' }}>
+            <div style={{ backgroundColor: 'var(--bg-surface-secondary)', border: '1px solid #3b82f6', borderRadius: 'var(--radius-md)', padding: '1rem' }}>
+              <div style={{ display: 'inline-block', backgroundColor: 'rgba(59, 130, 246, 0.15)', color: '#2563eb', fontSize: '0.7rem', fontWeight: 700, padding: '0.2rem 0.5rem', borderRadius: '4px', marginBottom: '0.5rem' }}>
                 ALTERNATE STRATEGY
               </div>
-              <div style={{ fontSize: '0.9375rem', fontWeight: 800, color: '#f8fafc', marginBottom: '0.35rem' }}>
+              <div style={{ fontSize: '0.9375rem', fontWeight: 800, color: 'var(--text-heading)', marginBottom: '0.35rem' }}>
                 {scenarioB.name.split(':')[0]}
               </div>
-              <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '1rem', lineHeight: 1.4 }}>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: 1.4 }}>
                 {scenarioB.description}
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.8125rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1e293b', paddingBottom: '0.4rem' }}>
-                  <span style={{ color: '#94a3b8' }}>Headway Variance:</span>
-                  <span style={{ fontWeight: 800, color: '#60a5fa' }}>{scenarioB.simulatedMetrics.headwayVarianceMin} min</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.4rem' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>Headway Variance:</span>
+                  <span style={{ fontWeight: 800, color: '#2563eb' }}>{scenarioB.simulatedMetrics.headwayVarianceMin} min</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1e293b', paddingBottom: '0.4rem' }}>
-                  <span style={{ color: '#94a3b8' }}>Bunching Risk:</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.4rem' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>Bunching Risk:</span>
                   <span style={{ fontWeight: 800, color: '#f59e0b' }}>{scenarioB.simulatedMetrics.bunchingRisk.split(' ')[0]}</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #1e293b', paddingBottom: '0.4rem' }}>
-                  <span style={{ color: '#94a3b8' }}>Excess Pass. Wait:</span>
-                  <span style={{ fontWeight: 800, color: '#60a5fa' }}>{scenarioB.simulatedMetrics.excessPassengerWaitMin} min</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.4rem' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>Excess Pass. Wait:</span>
+                  <span style={{ fontWeight: 800, color: '#2563eb' }}>{scenarioB.simulatedMetrics.excessPassengerWaitMin} min</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.2rem' }}>
-                  <span style={{ color: '#94a3b8' }}>Recovery Time:</span>
-                  <span style={{ fontWeight: 800, color: '#60a5fa' }}>{scenarioB.simulatedMetrics.fleetRecoveryTimeMin} min</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>Recovery Time:</span>
+                  <span style={{ fontWeight: 800, color: '#2563eb' }}>{scenarioB.simulatedMetrics.fleetRecoveryTimeMin} min</span>
                 </div>
               </div>
             </div>

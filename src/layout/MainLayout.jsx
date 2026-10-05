@@ -11,19 +11,40 @@ export default function MainLayout() {
   };
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg-primary, #080d19)' }}>
+    <div
+      style={{
+        display: 'flex',
+        minHeight: '100vh',
+        backgroundColor: 'var(--bg-primary, #080d19)',
+      }}
+    >
       {/* Shared Sidebar */}
-      <Sidebar isCollapsed={isSidebarCollapsed} onToggle={toggleSidebar} />
+      <Sidebar
+        isCollapsed={isSidebarCollapsed}
+        onToggle={toggleSidebar}
+      />
 
       {/* Main Workspace Area */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0, overflow: 'hidden' }}>
-        <Header isSidebarCollapsed={isSidebarCollapsed} onToggleSidebar={toggleSidebar} />
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          minWidth: 0,
+          overflow: 'hidden',
+        }}
+      >
+        <Header
+          isSidebarCollapsed={isSidebarCollapsed}
+          onToggleSidebar={toggleSidebar}
+        />
+
         <main
           style={{
             flex: 1,
             padding: '1.25rem 1.5rem',
             overflowY: 'auto',
-            backgroundColor: 'var(--bg-primary, #080d19)'
+            backgroundColor: 'var(--bg-primary, #080d19)',
           }}
         >
           <Outlet />

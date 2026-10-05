@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 import './SettingsPage.css';
 
 export default function SettingsPage() {
+  // Theme from context
+  const { theme, setTheme } = useTheme();
+
   // Card 1: User & Access State
   const [operatorName, setOperatorName] = useState('R. Karthik');
   const [email, setEmail] = useState('karthik.r@tnstc.gov.in');
   const [isEditing, setIsEditing] = useState(false);
 
   // Card 2: System Preferences State
-  const [theme, setTheme] = useState('dark');
   const [defaultView, setDefaultView] = useState('Live Map');
   const [autoRefresh, setAutoRefresh] = useState('1 minute');
   const [distanceUnit, setDistanceUnit] = useState('km');
@@ -133,7 +136,7 @@ export default function SettingsPage() {
               <div className="pref-theme-group">
                 <button
                   type="button"
-                  className={`theme-toggle-btn ${theme === 'dark' ? 'active-dark' : 'inactive'}`}
+                  className={`theme-toggle-btn ${theme === 'dark' ? 'active-theme' : 'inactive'}`}
                   onClick={() => setTheme('dark')}
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -151,7 +154,7 @@ export default function SettingsPage() {
                 </button>
                 <button
                   type="button"
-                  className={`theme-toggle-btn ${theme === 'light' ? 'active-dark' : 'inactive'}`}
+                  className={`theme-toggle-btn ${theme === 'light' ? 'active-theme' : 'inactive'}`}
                   onClick={() => setTheme('light')}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">

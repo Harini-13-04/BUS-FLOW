@@ -11,13 +11,14 @@ export default function IncidentKPIBar({ incidents }) {
       {/* 1. Active Incidents Card (Red) */}
       <div
         style={{
-          backgroundColor: '#0b121e',
-          border: '1px solid #1e293b',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-color)',
           borderRadius: 'var(--radius-lg)',
           padding: '0.65rem 0.875rem',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          boxShadow: 'var(--shadow-card)'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
@@ -38,27 +39,28 @@ export default function IncidentKPIBar({ incidents }) {
             ⚠️
           </div>
           <div>
-            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#f8fafc', lineHeight: 1 }}>
+            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-heading)', lineHeight: 1 }}>
               {activeCount}
             </div>
-            <div style={{ fontSize: '0.7rem', color: '#94a3b8', marginTop: '0.15rem', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginTop: '0.15rem', whiteSpace: 'nowrap' }}>
               Active Incidents
             </div>
           </div>
         </div>
-        <span style={{ color: '#64748b', fontSize: '0.875rem' }}>›</span>
+        <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>›</span>
       </div>
 
       {/* 2. Under Resolution Card (Yellow) */}
       <div
         style={{
-          backgroundColor: '#0b121e',
-          border: '1px solid #1e293b',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-color)',
           borderRadius: 'var(--radius-lg)',
           padding: '0.65rem 0.875rem',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          boxShadow: 'var(--shadow-card)'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
@@ -79,27 +81,28 @@ export default function IncidentKPIBar({ incidents }) {
             🕒
           </div>
           <div>
-            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#f8fafc', lineHeight: 1 }}>
+            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-heading)', lineHeight: 1 }}>
               {underResolutionCount}
             </div>
-            <div style={{ fontSize: '0.7rem', color: '#94a3b8', marginTop: '0.15rem', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginTop: '0.15rem', whiteSpace: 'nowrap' }}>
               Under Resolution
             </div>
           </div>
         </div>
-        <span style={{ color: '#64748b', fontSize: '0.875rem' }}>›</span>
+        <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>›</span>
       </div>
 
       {/* 3. Resolved Today Card (Green) */}
       <div
         style={{
-          backgroundColor: '#0b121e',
-          border: '1px solid #1e293b',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-color)',
           borderRadius: 'var(--radius-lg)',
           padding: '0.65rem 0.875rem',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          boxShadow: 'var(--shadow-card)'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
@@ -120,27 +123,28 @@ export default function IncidentKPIBar({ incidents }) {
             ✓
           </div>
           <div>
-            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#f8fafc', lineHeight: 1 }}>
+            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-heading)', lineHeight: 1 }}>
               {resolvedCount + 6}
             </div>
-            <div style={{ fontSize: '0.7rem', color: '#94a3b8', marginTop: '0.15rem', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginTop: '0.15rem', whiteSpace: 'nowrap' }}>
               Resolved Today
             </div>
           </div>
         </div>
-        <span style={{ color: '#64748b', fontSize: '0.875rem' }}>›</span>
+        <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>›</span>
       </div>
 
       {/* 4. Major Incidents Card (Blue) */}
       <div
         style={{
-          backgroundColor: '#0b121e',
-          border: '1px solid #1e293b',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-color)',
           borderRadius: 'var(--radius-lg)',
           padding: '0.65rem 0.875rem',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          boxShadow: 'var(--shadow-card)'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
@@ -161,15 +165,15 @@ export default function IncidentKPIBar({ incidents }) {
             📊
           </div>
           <div>
-            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#f8fafc', lineHeight: 1 }}>
+            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-heading)', lineHeight: 1 }}>
               {majorCount}
             </div>
-            <div style={{ fontSize: '0.7rem', color: '#94a3b8', marginTop: '0.15rem', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginTop: '0.15rem', whiteSpace: 'nowrap' }}>
               Major Incidents
             </div>
           </div>
         </div>
-        <span style={{ color: '#64748b', fontSize: '0.875rem' }}>›</span>
+        <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>›</span>
       </div>
     </div>
   );

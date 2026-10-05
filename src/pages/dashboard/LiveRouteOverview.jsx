@@ -39,20 +39,21 @@ export default function LiveRouteOverview({ routeData }) {
   return (
     <div
       style={{
-        backgroundColor: '#0c1421',
-        border: '1px solid #172336',
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
         borderRadius: '12px',
         padding: '1.15rem 1.25rem',
         display: 'flex',
         flexDirection: 'column',
         gap: '0.75rem',
-        height: '100%'
+        height: '100%',
+        boxShadow: 'var(--shadow-card)'
       }}
     >
       {/* Card Header: Title & Route Selector Dropdown */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-          <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#ffffff', margin: 0 }}>
+          <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-heading)', margin: 0 }}>
             Live Route Overview
           </h3>
           <span
@@ -60,7 +61,7 @@ export default function LiveRouteOverview({ routeData }) {
               fontSize: '0.68rem',
               fontWeight: 600,
               backgroundColor: 'rgba(34, 211, 238, 0.1)',
-              color: '#22d3ee',
+              color: '#0284c7',
               border: '1px solid rgba(34, 211, 238, 0.25)',
               padding: '1px 6px',
               borderRadius: '4px'
@@ -76,15 +77,15 @@ export default function LiveRouteOverview({ routeData }) {
             display: 'flex',
             alignItems: 'center',
             gap: '0.45rem',
-            backgroundColor: '#080d16',
-            border: '1px solid #1a2538',
+            backgroundColor: 'var(--bg-surface-secondary)',
+            border: '1px solid var(--border-color)',
             borderRadius: '8px',
             padding: '0.35rem 0.75rem',
             cursor: 'pointer',
             userSelect: 'none'
           }}
         >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--busflow-green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M8 6v6" />
             <path d="M16 6v6" />
             <rect width="16" height="16" x="4" y="3" rx="2" />
@@ -94,13 +95,13 @@ export default function LiveRouteOverview({ routeData }) {
             <path d="M7 19v2" />
             <path d="M17 19v2" />
           </svg>
-          <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: '#ffffff' }}>
+          <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-heading)' }}>
             {routeName}
           </span>
-          <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
             {routeSpan}
           </span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="6 9 12 15 18 9" />
           </svg>
         </div>
@@ -116,7 +117,7 @@ export default function LiveRouteOverview({ routeData }) {
           borderRadius: '10px',
           overflow: 'hidden',
           backgroundColor: '#060b13',
-          border: '1px solid #141c2a'
+          border: '1px solid var(--border-color)'
         }}
       >
         {/* Layer 1: Dark Satellite Aerial Map Texture */}
@@ -521,17 +522,17 @@ export default function LiveRouteOverview({ routeData }) {
             position: 'absolute',
             bottom: '12px',
             left: '14px',
-            backgroundColor: 'rgba(9, 14, 23, 0.92)',
+            backgroundColor: 'var(--bg-card)',
             backdropFilter: 'blur(8px)',
-            border: '1px solid #1a2538',
+            border: '1px solid var(--border-color)',
             borderRadius: '9999px',
             padding: '0.35rem 0.85rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.85rem',
             fontSize: '0.7rem',
-            color: '#cbd5e1',
-            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.5)',
+            color: 'var(--text-secondary)',
+            boxShadow: 'var(--shadow-card)',
             userSelect: 'none'
           }}
         >
@@ -552,7 +553,7 @@ export default function LiveRouteOverview({ routeData }) {
             <span>Recovered</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-            <span style={{ width: '7px', height: '7px', borderRadius: '50%', border: '1.5px solid #ffffff', backgroundColor: 'transparent' }} />
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', border: '1.5px solid var(--text-secondary)', backgroundColor: 'transparent' }} />
             <span>Stop</span>
           </div>
         </div>
@@ -565,11 +566,12 @@ export default function LiveRouteOverview({ routeData }) {
             right: '14px',
             display: 'flex',
             flexDirection: 'column',
-            backgroundColor: 'rgba(11, 18, 31, 0.95)',
-            border: '1px solid #1e293b',
+            backgroundColor: 'var(--bg-card)',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid var(--border-color)',
             borderRadius: '8px',
             overflow: 'hidden',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)'
+            boxShadow: 'var(--shadow-card)'
           }}
         >
           <button
@@ -581,8 +583,8 @@ export default function LiveRouteOverview({ routeData }) {
               height: '32px',
               backgroundColor: 'transparent',
               border: 'none',
-              borderBottom: '1px solid #1e293b',
-              color: '#ffffff',
+              borderBottom: '1px solid var(--border-color)',
+              color: 'var(--text-primary)',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -591,7 +593,7 @@ export default function LiveRouteOverview({ routeData }) {
               fontWeight: 700,
               transition: 'background-color 0.15s'
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)')}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-surface-secondary)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
           >
             +
@@ -605,8 +607,8 @@ export default function LiveRouteOverview({ routeData }) {
               height: '32px',
               backgroundColor: 'transparent',
               border: 'none',
-              borderBottom: '1px solid #1e293b',
-              color: '#ffffff',
+              borderBottom: '1px solid var(--border-color)',
+              color: 'var(--text-primary)',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -615,7 +617,7 @@ export default function LiveRouteOverview({ routeData }) {
               fontWeight: 700,
               transition: 'background-color 0.15s'
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)')}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-surface-secondary)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
           >
             −
@@ -629,14 +631,14 @@ export default function LiveRouteOverview({ routeData }) {
               height: '32px',
               backgroundColor: 'transparent',
               border: 'none',
-              color: '#38bdf8',
+              color: 'var(--busflow-green)',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               transition: 'background-color 0.15s'
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)')}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-surface-secondary)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">

@@ -6,11 +6,11 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
     <Card
       title="Active Incidents"
       action={
-        <span style={{ fontSize: '0.75rem', color: '#94a3b8', cursor: 'pointer', fontWeight: 600 }}>
+        <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', cursor: 'pointer', fontWeight: 600 }}>
           View All →
         </span>
       }
-      style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '0.875rem' }}
+      style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.875rem', boxShadow: 'var(--shadow-card)' }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
         {incidents.map((item) => {
@@ -43,11 +43,11 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '0.75rem 0.875rem',
-                backgroundColor: isSelected ? '#1e293b' : '#0f172a',
+                backgroundColor: isSelected ? 'var(--bg-surface-hover)' : 'var(--bg-surface-secondary)',
                 borderLeft: `4px solid ${borderLeftColor}`,
-                borderTop: '1px solid #1e293b',
-                borderRight: '1px solid #1e293b',
-                borderBottom: '1px solid #1e293b',
+                borderTop: '1px solid var(--border-subtle)',
+                borderRight: '1px solid var(--border-subtle)',
+                borderBottom: '1px solid var(--border-subtle)',
                 borderRadius: 'var(--radius-md)',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease'
@@ -73,7 +73,7 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
 
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <span style={{ fontWeight: 800, fontSize: '0.875rem', color: '#f8fafc' }}>
+                    <span style={{ fontWeight: 800, fontSize: '0.875rem', color: 'var(--text-heading)' }}>
                       {item.title}
                     </span>
                     <span
@@ -90,21 +90,21 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
                     </span>
                   </div>
 
-                  <div style={{ fontSize: '0.75rem', color: '#cbd5e1', marginTop: '0.15rem' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-primary)', marginTop: '0.15rem' }}>
                     {item.location}
                   </div>
 
-                  <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: '0.1rem' }}>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: '0.1rem' }}>
                     {item.affectsText}
                   </div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+                <span style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
                   {item.reportedTime}
                 </span>
-                <span style={{ color: '#64748b', fontSize: '0.875rem' }}>›</span>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>›</span>
               </div>
             </div>
           );

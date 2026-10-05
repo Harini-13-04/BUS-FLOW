@@ -17,18 +17,19 @@ export default function ControlActions({ actions = [] }) {
   return (
     <div
       style={{
-        backgroundColor: '#0c1421',
-        border: '1px solid #172336',
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
         borderRadius: '12px',
         padding: '1.25rem',
         display: 'flex',
         flexDirection: 'column',
-        gap: '0.85rem'
+        gap: '0.85rem',
+        boxShadow: 'var(--shadow-card)'
       }}
     >
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#ffffff', margin: 0 }}>
+        <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-heading)', margin: 0 }}>
           Current Control Actions
         </h3>
         <button
@@ -36,7 +37,7 @@ export default function ControlActions({ actions = [] }) {
           style={{
             background: 'none',
             border: 'none',
-            color: '#94a3b8',
+            color: 'var(--text-secondary)',
             fontSize: '0.78rem',
             cursor: 'pointer',
             padding: 0,
@@ -44,8 +45,8 @@ export default function ControlActions({ actions = [] }) {
             alignItems: 'center',
             gap: '0.25rem'
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = '#38bdf8')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = '#94a3b8')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--busflow-green)')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
         >
           View All →
         </button>
@@ -61,9 +62,9 @@ export default function ControlActions({ actions = [] }) {
               alignItems: 'center',
               justifyContent: 'space-between',
               padding: '0.65rem 0.75rem',
-              backgroundColor: '#080d16',
+              backgroundColor: 'var(--bg-surface-secondary)',
               borderRadius: '8px',
-              border: '1px solid #141c2a',
+              border: '1px solid var(--border-subtle)',
               transition: 'background-color 0.15s'
             }}
           >
@@ -72,13 +73,13 @@ export default function ControlActions({ actions = [] }) {
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 {renderBusIcon(item.color)}
               </div>
-              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ffffff', flexShrink: 0 }}>
+              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-heading)', flexShrink: 0 }}>
                 {item.busId}
               </span>
               <span
                 style={{
                   fontSize: '0.82rem',
-                  color: '#cbd5e1',
+                  color: 'var(--text-primary)',
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis'

@@ -37,7 +37,7 @@ export default function Dashboard() {
             style={{
               fontSize: '1.45rem',
               fontWeight: 800,
-              color: '#ffffff',
+              color: 'var(--text-heading)',
               margin: 0,
               letterSpacing: '-0.02em',
               lineHeight: 1.2
@@ -48,7 +48,7 @@ export default function Dashboard() {
           <p
             style={{
               fontSize: '0.8rem',
-              color: '#94a3b8',
+              color: 'var(--text-secondary)',
               margin: '0.2rem 0 0 0',
               fontWeight: 400
             }}
@@ -64,13 +64,13 @@ export default function Dashboard() {
             alignItems: 'center',
             gap: '0.75rem',
             fontSize: '0.8rem',
-            color: '#94a3b8'
+            color: 'var(--text-secondary)'
           }}
         >
           <span>{header.date}</span>
-          <span style={{ color: '#2d3748' }}>|</span>
-          <span style={{ fontWeight: 700, color: '#ffffff' }}>{header.time}</span>
-          <span style={{ color: '#2d3748' }}>|</span>
+          <span style={{ color: 'var(--border-light)' }}>|</span>
+          <span style={{ fontWeight: 700, color: 'var(--text-heading)' }}>{header.time}</span>
+          <span style={{ color: 'var(--border-light)' }}>|</span>
 
           {/* Simulation Running Status Pill */}
           <div
@@ -82,7 +82,7 @@ export default function Dashboard() {
               border: '1px solid rgba(16, 185, 129, 0.35)',
               borderRadius: '9999px',
               padding: '0.3rem 0.75rem',
-              color: '#34d399',
+              color: '#10b981',
               fontSize: '0.75rem',
               fontWeight: 600
             }}

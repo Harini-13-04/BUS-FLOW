@@ -37,7 +37,7 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
             style={{
               background: 'none',
               border: 'none',
-              color: '#94a3b8',
+              color: 'var(--text-secondary)',
               fontSize: '1.1rem',
               cursor: 'pointer',
               padding: '0 0.25rem'
@@ -48,9 +48,10 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
         </div>
       }
       style={{
-        backgroundColor: '#0b121e',
-        border: '1px solid #1e293b',
-        padding: '1.25rem'
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
+        padding: '1.25rem',
+        boxShadow: 'var(--shadow-card)'
       }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -76,22 +77,22 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
                 ⚠️
               </div>
               <div>
-                <div style={{ fontSize: '1.125rem', fontWeight: 800, color: '#f8fafc', lineHeight: 1.2 }}>
+                <div style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--text-heading)', lineHeight: 1.2 }}>
                   {incident.title}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.15rem' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.15rem' }}>
                   {incident.reportedTime}, 24 Jul 2024
                 </div>
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginTop: '0.5rem', fontSize: '0.8125rem', color: '#cbd5e1' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginTop: '0.5rem', fontSize: '0.8125rem', color: 'var(--text-primary)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <span style={{ color: '#94a3b8' }}>📍</span>
+                <span style={{ color: 'var(--text-secondary)' }}>📍</span>
                 <span>{incident.location}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <span style={{ color: '#94a3b8' }}>🔀</span>
+                <span style={{ color: 'var(--text-secondary)' }}>🔀</span>
                 <span>{incident.affectsText}</span>
               </div>
             </div>
@@ -105,8 +106,8 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
               borderRadius: 'var(--radius-md)',
               overflow: 'hidden',
               position: 'relative',
-              border: '1px solid #1e293b',
-              backgroundColor: '#0f172a',
+              border: '1px solid var(--border-color)',
+              backgroundColor: 'var(--bg-surface-secondary)',
               flexShrink: 0
             }}
           >
@@ -148,23 +149,23 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
             gridTemplateColumns: 'minmax(220px, 1.2fr) minmax(180px, 1fr)',
             gap: '1rem',
             paddingTop: '0.875rem',
-            borderTop: '1px solid #1e293b'
+            borderTop: '1px solid var(--border-subtle)'
           }}
         >
           {/* Left Column: Properties */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.8125rem' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '95px 1fr', gap: '0.5rem', alignItems: 'center' }}>
-              <span style={{ color: '#94a3b8' }}>Cause</span>
-              <span style={{ color: '#f8fafc', fontWeight: 600 }}>{incident.cause}</span>
+              <span style={{ color: 'var(--text-secondary)' }}>Cause</span>
+              <span style={{ color: 'var(--text-heading)', fontWeight: 600 }}>{incident.cause}</span>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '95px 1fr', gap: '0.5rem', alignItems: 'center' }}>
-              <span style={{ color: '#94a3b8' }}>Impact</span>
-              <span style={{ color: '#f8fafc', fontWeight: 600 }}>{incident.impact}</span>
+              <span style={{ color: 'var(--text-secondary)' }}>Impact</span>
+              <span style={{ color: 'var(--text-heading)', fontWeight: 600 }}>{incident.impact}</span>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '95px 1fr', gap: '0.5rem', alignItems: 'center' }}>
-              <span style={{ color: '#94a3b8' }}>Affected Buses</span>
+              <span style={{ color: 'var(--text-secondary)' }}>Affected Buses</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
                 {affectedBuses.map((b) => (
                   <span
@@ -185,7 +186,7 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '95px 1fr', gap: '0.5rem', alignItems: 'center' }}>
-              <span style={{ color: '#94a3b8' }}>Current Status</span>
+              <span style={{ color: 'var(--text-secondary)' }}>Current Status</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                 <span
                   style={{
@@ -202,8 +203,8 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '95px 1fr', gap: '0.5rem', alignItems: 'center' }}>
-              <span style={{ color: '#94a3b8' }}>Detected At</span>
-              <span style={{ color: '#94a3b8' }}>{incident.detectedAt}</span>
+              <span style={{ color: 'var(--text-secondary)' }}>Detected At</span>
+              <span style={{ color: 'var(--text-secondary)' }}>{incident.detectedAt}</span>
             </div>
           </div>
 
@@ -231,7 +232,7 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
                           height: '8px',
                           borderRadius: '50%',
                           backgroundColor: t.isDone ? '#ef4444' : 'transparent',
-                          border: t.isDone ? 'none' : '1.5px solid #64748b',
+                          border: t.isDone ? 'none' : '1.5px solid var(--border-light)',
                           zIndex: 1
                         }}
                       />
@@ -242,17 +243,17 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
                             top: '8px',
                             width: '1px',
                             height: '18px',
-                            backgroundColor: t.isDone ? 'rgba(239, 68, 68, 0.4)' : '#334155',
+                            backgroundColor: t.isDone ? 'rgba(239, 68, 68, 0.4)' : 'var(--border-color)',
                             zIndex: 0
                           }}
                         />
                       )}
                     </div>
-                    <span style={{ color: t.isDone ? '#f8fafc' : '#64748b', fontWeight: t.isDone ? 600 : 400 }}>
+                    <span style={{ color: t.isDone ? 'var(--text-heading)' : 'var(--text-muted)', fontWeight: t.isDone ? 600 : 400 }}>
                       {t.event.replace(' [Simulated]', '')}
                     </span>
                   </div>
-                  <span style={{ color: '#64748b', fontSize: '0.75rem' }}>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
                     {t.time}
                   </span>
                 </div>
@@ -262,8 +263,8 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
         </div>
 
         {/* Demo Action Button Footer */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', paddingTop: '0.75rem', borderTop: '1px solid #1e293b', flexWrap: 'wrap' }}>
-          <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', paddingTop: '0.75rem', borderTop: '1px solid var(--border-subtle)', flexWrap: 'wrap' }}>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
             [Simulated Incident Console — Local State]
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -279,8 +280,8 @@ export default function IncidentDetailDrawer({ incident, onClose, onToggleResolv
               variant={incident.isDemoResolved ? 'secondary' : 'primary'}
               onClick={() => onToggleResolve(incident.id)}
               style={{
-                backgroundColor: incident.isDemoResolved ? '#1e293b' : '#ef4444',
-                borderColor: incident.isDemoResolved ? '#334155' : '#ef4444',
+                backgroundColor: incident.isDemoResolved ? 'var(--bg-surface-secondary)' : '#ef4444',
+                borderColor: incident.isDemoResolved ? 'var(--border-color)' : '#ef4444',
                 color: '#ffffff'
               }}
             >

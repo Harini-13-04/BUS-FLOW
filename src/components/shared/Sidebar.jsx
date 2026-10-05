@@ -71,8 +71,12 @@ const NAV_ITEMS = [
     label: 'Analytics',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        <line x1="18" x2="18" y1="20" y2="10" strokeLinecap="round" />
+        <line x1="12" x2="12" y1="20" y2="4" strokeLinecap="round" />
+        <line x1="6" x2="6" y1="20" y2="14" strokeLinecap="round" />
+        <circle cx="18" cy="7" r="2" fill="currentColor" />
+        <circle cx="12" cy="3" r="2" fill="currentColor" />
+        <circle cx="6" cy="11" r="2" fill="currentColor" />
       </svg>
     )
   },
@@ -88,118 +92,129 @@ const NAV_ITEMS = [
   }
 ];
 
-export default function Sidebar({ isCollapsed }) {
+export default function Sidebar({ isCollapsed, onToggle }) {
   return (
     <aside
       style={{
-        width: isCollapsed ? '64px' : '225px',
-        minWidth: isCollapsed ? '64px' : '225px',
-        height: 'calc(100vh - 60px)',
-        backgroundColor: '#001119',
-        borderRight: '1px solid #102636',
+        width: isCollapsed ? 'var(--sidebar-width-collapsed, 72px)' : 'var(--sidebar-width, 230px)',
+        minWidth: isCollapsed ? 'var(--sidebar-width-collapsed, 72px)' : 'var(--sidebar-width, 230px)',
+        height: '100vh',
+        backgroundColor: 'var(--sidebar-bg, #04090b)',
+        borderRight: '1px solid var(--border-color, rgba(255, 255, 255, 0.08))',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        transition: 'width 0.2s ease-in-out',
-        userSelect: 'none',
+        transition: 'width 0.2s ease, background-color 0.2s ease, border-color 0.2s ease',
+        position: 'sticky',
+        top: 0,
+        zIndex: 40,
         overflowX: 'hidden',
         overflowY: 'auto',
+        userSelect: 'none',
         boxSizing: 'border-box'
       }}
     >
-      {/* Navigation List */}
-      <nav style={{ padding: '0.85rem 0.65rem 0', display: 'flex', flexDirection: 'column' }}>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-          {NAV_ITEMS.map((item) => (
-            <li key={item.path}>
-              <NavLink
-                to={item.path}
-                style={({ isActive }) => ({
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  padding: isCollapsed ? '0.65rem' : '0.55rem 0.85rem',
-                  justifyContent: isCollapsed ? 'center' : 'flex-start',
-                  borderRadius: '7px',
-                  fontSize: '0.84rem',
-                  fontWeight: isActive ? 600 : 400,
-                  color: isActive ? '#ffffff' : '#8fa0b5',
-                  backgroundColor: isActive ? 'rgba(20, 184, 166, 0.16)' : 'transparent',
-                  border: isActive ? '1px solid rgba(45, 212, 191, 0.35)' : '1px solid transparent',
-                  position: 'relative',
-                  transition: 'all 0.15s ease'
-                })}
-              >
-                {({ isActive }) => (
-                  <>
-                    {/* Left Bright Teal Active Indicator Pill */}
-                    {isActive && (
+      {/* Upper Navigation Section */}
+      <div>
+        {/* Navigation List */}
+        <nav style={{ padding: '0.85rem 0.65rem 0' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.path}>
+                <NavLink
+                  to={item.path}
+                  style={({ isActive }) => ({
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    padding: isCollapsed ? '0.65rem' : '0.6rem 0.85rem',
+                    justifyContent: isCollapsed ? 'center' : 'flex-start',
+                    borderRadius: 'var(--radius-md, 8px)',
+                    fontSize: '0.86rem',
+                    fontWeight: isActive ? 600 : 500,
+                    color: isActive ? 'var(--busflow-green, #00e599)' : 'var(--text-secondary, #94a3b8)',
+                    backgroundColor: isActive ? 'var(--primary-accent-bg, rgba(0, 229, 153, 0.12))' : 'transparent',
+                    border: isActive
+                      ? '1px solid var(--border-green, rgba(0, 229, 153, 0.25))'
+                      : '1px solid transparent',
+                    position: 'relative',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease'
+                  })}
+                >
+                  {({ isActive }) => (
+                    <>
+                      {/* Active Indicator Left Glow */}
+                      {isActive && (
+                        <span
+                          style={{
+                            position: 'absolute',
+                            left: 0,
+                            top: '6px',
+                            bottom: '6px',
+                            width: '3.5px',
+                            backgroundColor: 'var(--busflow-green, #00e599)',
+                            borderRadius: '0 3px 3px 0',
+                            boxShadow: '0 0 8px var(--busflow-green-glow, rgba(0, 229, 153, 0.4))'
+                          }}
+                        />
+                      )}
+
+                      {/* Icon */}
                       <span
                         style={{
-                          position: 'absolute',
-                          left: 0,
-                          top: '4px',
-                          bottom: '4px',
-                          width: '3.5px',
-                          backgroundColor: '#00f5c4',
-                          borderRadius: '0 3px 3px 0',
-                          boxShadow: '0 0 8px rgba(0, 245, 196, 0.7)'
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: isActive ? 'var(--busflow-green, #00e599)' : 'var(--text-secondary, #94a3b8)'
                         }}
-                      />
-                    )}
+                      >
+                        {item.icon}
+                      </span>
 
-                    {/* Nav Item Icon */}
-                    <span
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: isActive ? '#ffffff' : '#8fa0b5'
-                      }}
-                    >
-                      {item.icon}
-                    </span>
+                      {/* Label */}
+                      {!isCollapsed && <span>{item.label}</span>}
+                    </>
+                  )}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
 
-                    {/* Nav Item Label */}
-                    {!isCollapsed && <span>{item.label}</span>}
-                  </>
-                )}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      {/* Sidebar Lower Section: Subtle Transparent Temple Line Art + Slogan */}
+      {/* Sidebar Lower Section: Exact Tamil Nadu Temple Artwork + Slogan */}
       {!isCollapsed && (
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
-            padding: '0 0.85rem 1.15rem 0.85rem',
+            padding: '0 0.85rem 1.25rem 0.85rem',
             marginTop: 'auto'
           }}
         >
-          {/* Subtle Green/Teal Line Art Gopuram */}
+          {/* Natural Emerald Line-Art Temple Illustration */}
           <div
             style={{
               width: '100%',
               display: 'flex',
               justifyContent: 'center',
-              marginBottom: '0.5rem'
+              marginBottom: '0.65rem'
             }}
           >
             <img
-              src="/assets/sidebar_temple_transparent.png"
-              alt="Tamil Nadu Gopuram"
+              src="/sidebar-temple.png"
+              onError={(e) => { e.currentTarget.src = '/assets/sidebar_temple_transparent.png'; }}
+              alt="Tamil Nadu Gopuram Heritage"
               style={{
                 width: '100%',
                 maxWidth: '175px',
                 height: 'auto',
                 objectFit: 'contain',
-                opacity: 0.9,
-                filter: 'drop-shadow(0 0 8px rgba(0, 245, 196, 0.12))'
+                opacity: 0.95,
+                filter: 'drop-shadow(0 0 8px var(--busflow-green-glow, rgba(0, 229, 153, 0.2)))',
+                pointerEvents: 'none'
               }}
             />
           </div>
@@ -210,14 +225,15 @@ export default function Sidebar({ isCollapsed }) {
               display: 'flex',
               flexDirection: 'column',
               gap: '2px',
-              paddingLeft: '0.45rem'
+              paddingLeft: '0.35rem',
+              width: '100%'
             }}
           >
             <span
               style={{
                 fontSize: '0.74rem',
-                fontWeight: 400,
-                color: '#cbd5e1',
+                fontWeight: 500,
+                color: 'var(--text-secondary, #94a3b8)',
                 lineHeight: 1.35,
                 letterSpacing: '0.01em'
               }}
@@ -227,8 +243,8 @@ export default function Sidebar({ isCollapsed }) {
             <span
               style={{
                 fontSize: '0.74rem',
-                fontWeight: 400,
-                color: '#cbd5e1',
+                fontWeight: 500,
+                color: 'var(--text-secondary, #94a3b8)',
                 lineHeight: 1.35,
                 letterSpacing: '0.01em'
               }}
@@ -238,10 +254,11 @@ export default function Sidebar({ isCollapsed }) {
             <span
               style={{
                 fontSize: '0.74rem',
-                fontWeight: 400,
-                color: '#cbd5e1',
+                fontWeight: 700,
+                color: 'var(--busflow-green, #00e599)',
                 lineHeight: 1.35,
-                letterSpacing: '0.01em'
+                letterSpacing: '0.01em',
+                marginTop: '1px'
               }}
             >
               For a Better Tamil Nadu

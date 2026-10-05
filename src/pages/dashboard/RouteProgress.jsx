@@ -68,28 +68,29 @@ export default function RouteProgress({ data }) {
   return (
     <div
       style={{
-        backgroundColor: '#0c1421',
-        border: '1px solid #172336',
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
         borderRadius: '12px',
         padding: '1.15rem 1.4rem',
         display: 'flex',
         flexDirection: 'column',
-        gap: '2rem'
+        gap: '2rem',
+        boxShadow: 'var(--shadow-card)'
       }}
     >
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
-        <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#ffffff', margin: 0 }}>
+        <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-heading)', margin: 0 }}>
           {routeName}
         </h3>
 
         {/* Right Info: Distance | Stops | Target Headway */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', fontSize: '0.78rem', color: '#94a3b8' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
           <span>{distance}</span>
-          <span style={{ color: '#2d3748' }}>|</span>
+          <span style={{ color: 'var(--border-light)' }}>|</span>
           <span>{stopsCount}</span>
-          <span style={{ color: '#2d3748' }}>|</span>
-          <span style={{ color: '#cbd5e1' }}>{headway}</span>
+          <span style={{ color: 'var(--border-light)' }}>|</span>
+          <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{headway}</span>
         </div>
       </div>
 
@@ -110,9 +111,9 @@ export default function RouteProgress({ data }) {
               left: '3.5rem',
               right: '3.5rem',
               height: '4px',
-              backgroundColor: '#22d3ee',
+              backgroundColor: '#0284c7',
               borderRadius: '2px',
-              boxShadow: '0 0 10px rgba(34, 211, 238, 0.5)'
+              boxShadow: '0 0 10px rgba(2, 132, 199, 0.4)'
             }}
           />
 
@@ -150,13 +151,13 @@ export default function RouteProgress({ data }) {
                       width: isFirst || isLast ? '18px' : '14px',
                       height: isFirst || isLast ? '18px' : '14px',
                       borderRadius: '50%',
-                      backgroundColor: isFirst ? '#ffffff' : isLast ? '#ef4444' : '#080d16',
+                      backgroundColor: isFirst ? 'var(--bg-surface)' : isLast ? '#ef4444' : 'var(--bg-surface-secondary)',
                       border: isFirst
-                        ? '3px solid #22d3ee'
+                        ? '3px solid #0284c7'
                         : isLast
-                        ? '3px solid #ffffff'
-                        : '3px solid #ffffff',
-                      boxShadow: '0 0 8px rgba(0, 0, 0, 0.8)',
+                        ? '3px solid var(--text-heading)'
+                        : '3px solid var(--border-light)',
+                      boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)',
                       cursor: 'pointer'
                     }}
                   />
@@ -167,7 +168,7 @@ export default function RouteProgress({ data }) {
                       marginTop: '0.75rem',
                       fontSize: '0.75rem',
                       fontWeight: isFirst || isLast ? 700 : 500,
-                      color: isFirst || isLast ? '#ffffff' : '#94a3b8',
+                      color: isFirst || isLast ? 'var(--text-heading)' : 'var(--text-secondary)',
                       textAlign: 'center',
                       lineHeight: 1.2,
                       whiteSpace: 'nowrap',

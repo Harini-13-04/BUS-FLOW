@@ -28,8 +28,8 @@ export default function BusImpactTable({ scenario, isApplied }) {
           style={{
             padding: '0.35rem 0.65rem',
             backgroundColor: 'transparent',
-            border: '1px solid #334155',
-            color: '#cbd5e1',
+            border: '1px solid var(--border-color)',
+            color: 'var(--text-secondary)',
             borderRadius: 'var(--radius-md)',
             fontSize: '0.75rem',
             fontWeight: 600,
@@ -42,12 +42,12 @@ export default function BusImpactTable({ scenario, isApplied }) {
           📥 Export Results
         </button>
       }
-      style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '1rem' }}
+      style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '1rem', boxShadow: 'var(--shadow-card)' }}
     >
       <div style={{ overflowX: 'auto', width: '100%' }}>
         <table style={{ width: '100%', minWidth: '640px', borderCollapse: 'collapse', fontSize: '0.78125rem', textAlign: 'left' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid #1e293b', color: '#94a3b8', fontSize: '0.72rem' }}>
+            <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-secondary)', fontSize: '0.72rem' }}>
               <th style={{ padding: '0.5rem 0.4rem', fontWeight: 600 }}>Bus ID</th>
               <th style={{ padding: '0.5rem 0.4rem', fontWeight: 600 }}>Current Headway</th>
               <th style={{ padding: '0.5rem 0.4rem', fontWeight: 600 }}>Simulated Headway</th>
@@ -65,16 +65,16 @@ export default function BusImpactTable({ scenario, isApplied }) {
                 if (row.status === 'AT_RISK') badgeColor = '#f59e0b';
 
                 return (
-                  <tr key={row.id} style={{ borderBottom: '1px solid #1e293b' }}>
-                    <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <tr key={row.id} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                    <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: 'var(--text-heading)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                       <div style={{ width: '20px', height: '20px', borderRadius: '4px', backgroundColor: badgeColor, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', color: '#fff', flexShrink: 0 }}>
                         🚌
                       </div>
                       <span>{row.id}</span>
                     </td>
-                    <td style={{ padding: '0.55rem 0.4rem', color: '#cbd5e1' }}>{row.currentHeadway}</td>
+                    <td style={{ padding: '0.55rem 0.4rem', color: 'var(--text-primary)' }}>{row.currentHeadway}</td>
                     <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: '#ef4444' }}>{row.simHeadway}</td>
-                    <td style={{ padding: '0.55rem 0.4rem', color: '#cbd5e1' }}>{row.currentLoad}</td>
+                    <td style={{ padding: '0.55rem 0.4rem', color: 'var(--text-primary)' }}>{row.currentLoad}</td>
                     <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: row.simLoad > 90 ? '#ef4444' : '#f59e0b' }}>{row.simLoad}</td>
                     <td style={{ padding: '0.55rem 0.4rem' }}>
                       <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: badgeColor, fontWeight: 700, fontSize: '0.72rem' }}>
@@ -82,7 +82,7 @@ export default function BusImpactTable({ scenario, isApplied }) {
                         {row.statusText}
                       </span>
                     </td>
-                    <td style={{ padding: '0.55rem 0.4rem', color: '#cbd5e1', fontSize: '0.72rem' }}>
+                    <td style={{ padding: '0.55rem 0.4rem', color: 'var(--text-secondary)', fontSize: '0.72rem' }}>
                       {row.remark}
                     </td>
                   </tr>
@@ -95,22 +95,22 @@ export default function BusImpactTable({ scenario, isApplied }) {
                 if (r.status === 'AT_RISK') badgeColor = '#f59e0b';
 
                 return (
-                  <tr key={r.id} style={{ borderBottom: '1px solid #1e293b' }}>
-                    <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <tr key={r.id} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                    <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: 'var(--text-heading)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                       <div style={{ width: '20px', height: '20px', borderRadius: '4px', backgroundColor: badgeColor, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', color: '#fff', flexShrink: 0 }}>
                         🚌
                       </div>
                       <div>
                         <div>{r.id}</div>
-                        <div style={{ fontSize: '0.65rem', color: '#94a3b8', fontWeight: 400 }}>{r.role}</div>
+                        <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', fontWeight: 400 }}>{r.role}</div>
                       </div>
                     </td>
-                    <td style={{ padding: '0.55rem 0.4rem', color: '#cbd5e1' }}>+{r.beforeDelay} min</td>
-                    <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: isApplied ? (r.afterDelay < r.beforeDelay ? '#10b981' : '#f59e0b') : '#64748b' }}>
+                    <td style={{ padding: '0.55rem 0.4rem', color: 'var(--text-primary)' }}>+{r.beforeDelay} min</td>
+                    <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: isApplied ? (r.afterDelay < r.beforeDelay ? '#10b981' : '#f59e0b') : 'var(--text-muted)' }}>
                       {isApplied ? `+${r.afterDelay} min` : '—'}
                     </td>
-                    <td style={{ padding: '0.55rem 0.4rem', color: '#cbd5e1' }}>{r.loadPct}%</td>
-                    <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: isApplied ? '#10b981' : '#64748b' }}>
+                    <td style={{ padding: '0.55rem 0.4rem', color: 'var(--text-primary)' }}>{r.loadPct}%</td>
+                    <td style={{ padding: '0.55rem 0.4rem', fontWeight: 700, color: isApplied ? '#10b981' : 'var(--text-muted)' }}>
                       {isApplied ? `${r.loadPct}%` : '—'}
                     </td>
                     <td style={{ padding: '0.55rem 0.4rem' }}>
@@ -119,7 +119,7 @@ export default function BusImpactTable({ scenario, isApplied }) {
                         {r.status.replace('_', ' ')}
                       </span>
                     </td>
-                    <td style={{ padding: '0.55rem 0.4rem', color: isApplied ? '#f8fafc' : '#cbd5e1', fontSize: '0.72rem', fontWeight: isApplied ? 600 : 400 }}>
+                    <td style={{ padding: '0.55rem 0.4rem', color: isApplied ? 'var(--text-heading)' : 'var(--text-secondary)', fontSize: '0.72rem', fontWeight: isApplied ? 600 : 400 }}>
                       {isApplied ? r.action : r.role}
                     </td>
                   </tr>

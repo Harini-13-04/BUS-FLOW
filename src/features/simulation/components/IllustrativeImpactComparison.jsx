@@ -31,68 +31,68 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
       {/* 1. Expected Impact 4 KPI Row */}
       <Card
         title="Expected Impact (vs Current)"
-        style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '1rem' }}
+        style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '1rem', boxShadow: 'var(--shadow-card)' }}
       >
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem' }}>
           {/* Card 1: Total Ridership */}
-          <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <div style={{ backgroundColor: 'var(--bg-surface-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: 'rgba(16, 185, 129, 0.2)', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', flexShrink: 0 }}>
               👥
             </div>
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: '0.7rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Total Ridership</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Total Ridership</div>
               <div style={{ fontSize: '1.125rem', fontWeight: 800, color: '#10b981', lineHeight: 1.2 }}>
                 +{demandPct}%
               </div>
-              <div style={{ fontSize: '0.65rem', color: '#64748b', marginTop: '0.1rem', whiteSpace: 'nowrap' }}>
+              <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.1rem', whiteSpace: 'nowrap' }}>
                 18,240 → 23,350
               </div>
             </div>
           </div>
 
           {/* Card 2: Average Headway */}
-          <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: 'rgba(37, 99, 235, 0.2)', color: '#60a5fa', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', flexShrink: 0 }}>
+          <div style={{ backgroundColor: 'var(--bg-surface-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+            <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: 'rgba(37, 99, 235, 0.2)', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', flexShrink: 0 }}>
               ⏱️
             </div>
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: '0.7rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Average Headway</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Average Headway</div>
               <div style={{ fontSize: '1.125rem', fontWeight: 800, color: isApplied ? '#10b981' : '#f59e0b', lineHeight: 1.2 }}>
                 {isApplied ? `-${(base.headwayVarianceMin - sim.headwayVarianceMin).toFixed(1)} min` : `+1.6 min`}
               </div>
-              <div style={{ fontSize: '0.65rem', color: '#64748b', marginTop: '0.1rem', whiteSpace: 'nowrap' }}>
+              <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.1rem', whiteSpace: 'nowrap' }}>
                 {isApplied ? `${base.headwayVarianceMin} → ${sim.headwayVarianceMin} min` : '4.2 → 5.8 min'}
               </div>
             </div>
           </div>
 
           {/* Card 3: On-Time Rate */}
-          <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <div style={{ backgroundColor: 'var(--bg-surface-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: 'rgba(16, 185, 129, 0.2)', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', flexShrink: 0 }}>
               🎯
             </div>
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: '0.7rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>On-Time Rate</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>On-Time Rate</div>
               <div style={{ fontSize: '1.125rem', fontWeight: 800, color: isApplied ? '#10b981' : '#ef4444', lineHeight: 1.2 }}>
                 {isApplied ? '+12%' : '-12%'}
               </div>
-              <div style={{ fontSize: '0.65rem', color: '#64748b', marginTop: '0.1rem', whiteSpace: 'nowrap' }}>
+              <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.1rem', whiteSpace: 'nowrap' }}>
                 {isApplied ? '77% → 89%' : '89% → 77%'}
               </div>
             </div>
           </div>
 
           {/* Card 4: Bunching Risk */}
-          <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <div style={{ backgroundColor: 'var(--bg-surface-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: '0.65rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#ef4444', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', flexShrink: 0 }}>
               ⚠️
             </div>
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: '0.7rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Bunching Risk</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Bunching Risk</div>
               <div style={{ fontSize: '1.125rem', fontWeight: 800, color: isApplied ? '#10b981' : '#ef4444', lineHeight: 1.2 }}>
                 {isApplied ? '-2 buses' : '+2 buses'}
               </div>
-              <div style={{ fontSize: '0.65rem', color: '#64748b', marginTop: '0.1rem', whiteSpace: 'nowrap' }}>
+              <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.1rem', whiteSpace: 'nowrap' }}>
                 {isApplied ? '3 → 1' : '1 → 3'}
               </div>
             </div>
@@ -104,36 +104,36 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
       <Card
         title="Headway Comparison"
         action={
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', fontSize: '0.75rem', color: '#cbd5e1' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10b981' }} /> Current
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#3b82f6' }} /> Simulated
             </span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: '#94a3b8' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: 'var(--text-muted)' }}>
               - - - Target (4.0 min)
             </span>
           </div>
         }
-        style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '1rem' }}
+        style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '1rem', boxShadow: 'var(--shadow-card)' }}
       >
         <div style={{ height: '120px', width: '100%', position: 'relative' }}>
           <svg width="100%" height="100%" viewBox="0 0 600 110" preserveAspectRatio="none">
             {/* Horizontal Grid lines */}
-            <line x1="35" y1="10" x2="590" y2="10" stroke="#1e293b" strokeDasharray="3 3" />
-            <line x1="35" y1="35" x2="590" y2="35" stroke="#1e293b" strokeDasharray="3 3" />
-            <line x1="35" y1="60" x2="590" y2="60" stroke="#1e293b" strokeDasharray="3 3" />
-            <line x1="35" y1="85" x2="590" y2="85" stroke="#1e293b" strokeDasharray="3 3" />
+            <line x1="35" y1="10" x2="590" y2="10" stroke="var(--border-subtle)" strokeDasharray="3 3" />
+            <line x1="35" y1="35" x2="590" y2="35" stroke="var(--border-subtle)" strokeDasharray="3 3" />
+            <line x1="35" y1="60" x2="590" y2="60" stroke="var(--border-subtle)" strokeDasharray="3 3" />
+            <line x1="35" y1="85" x2="590" y2="85" stroke="var(--border-subtle)" strokeDasharray="3 3" />
 
             {/* Target 4.0 min line */}
-            <line x1="35" y1="60" x2="590" y2="60" stroke="#64748b" strokeDasharray="6 4" strokeWidth="1.5" />
+            <line x1="35" y1="60" x2="590" y2="60" stroke="var(--text-muted)" strokeDasharray="6 4" strokeWidth="1.5" />
 
             {/* Y-axis labels */}
-            <text x="22" y="14" fill="#64748b" fontSize="8.5" textAnchor="end">12</text>
-            <text x="22" y="39" fill="#64748b" fontSize="8.5" textAnchor="end">8</text>
-            <text x="22" y="64" fill="#64748b" fontSize="8.5" textAnchor="end">4</text>
-            <text x="22" y="89" fill="#64748b" fontSize="8.5" textAnchor="end">0</text>
+            <text x="22" y="14" fill="var(--text-muted)" fontSize="8.5" textAnchor="end">12</text>
+            <text x="22" y="39" fill="var(--text-muted)" fontSize="8.5" textAnchor="end">8</text>
+            <text x="22" y="64" fill="var(--text-muted)" fontSize="8.5" textAnchor="end">4</text>
+            <text x="22" y="89" fill="var(--text-muted)" fontSize="8.5" textAnchor="end">0</text>
 
             {/* Green Line (Current Baseline) */}
             <path
@@ -168,7 +168,7 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
         </div>
 
         {/* X-axis labels */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', paddingLeft: '35px', fontSize: '0.7rem', color: '#64748b', marginTop: '0.15rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', paddingLeft: '35px', fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
           <span>10:00 AM</span>
           <span>10:30 AM</span>
           <span>11:00 AM</span>
@@ -183,7 +183,7 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
         <Card
           title="Passenger Load Distribution"
           action={
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.7rem', color: '#cbd5e1' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                 <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#10b981' }} /> Current
               </span>
@@ -192,7 +192,7 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
               </span>
             </div>
           }
-          style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '1rem' }}
+          style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '1rem', boxShadow: 'var(--shadow-card)' }}
         >
           <div style={{ height: '110px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', gap: '0.35rem', paddingTop: '0.5rem' }}>
             {stations.map((st, idx) => {
@@ -205,7 +205,7 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
                     <div style={{ width: '10px', height: `${currentH}%`, backgroundColor: '#10b981', borderRadius: '2px 2px 0 0' }} title={`Current: ${currentH}`} />
                     <div style={{ width: '10px', height: `${simH}%`, backgroundColor: '#3b82f6', borderRadius: '2px 2px 0 0' }} title={`Simulated: ${simH}`} />
                   </div>
-                  <span style={{ fontSize: '0.625rem', color: '#94a3b8', textAlign: 'center', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: '0.625rem', color: 'var(--text-secondary)', textAlign: 'center', whiteSpace: 'nowrap' }}>
                     {st.split(' ')[0]}
                   </span>
                 </div>
@@ -218,7 +218,7 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
         <Card
           title="Bus Bunching Risk"
           action={
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.7rem', color: '#cbd5e1' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                 <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#f59e0b' }} /> Current
               </span>
@@ -227,7 +227,7 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
               </span>
             </div>
           }
-          style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '1rem' }}
+          style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '1rem', boxShadow: 'var(--shadow-card)' }}
         >
           <div style={{ height: '110px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', gap: '0.35rem', paddingTop: '0.5rem' }}>
             {stations.map((st, idx) => {
@@ -240,7 +240,7 @@ export default function IllustrativeImpactComparison({ scenario, isApplied, dema
                     <div style={{ width: '10px', height: `${currentH}%`, backgroundColor: '#f59e0b', borderRadius: '2px 2px 0 0' }} title={`Current Risk: ${currentH}%`} />
                     <div style={{ width: '10px', height: `${simH}%`, backgroundColor: '#ef4444', borderRadius: '2px 2px 0 0' }} title={`Simulated Risk: ${simH}%`} />
                   </div>
-                  <span style={{ fontSize: '0.625rem', color: '#94a3b8', textAlign: 'center', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: '0.625rem', color: 'var(--text-secondary)', textAlign: 'center', whiteSpace: 'nowrap' }}>
                     {st.split(' ')[0]}
                   </span>
                 </div>

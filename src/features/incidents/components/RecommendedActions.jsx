@@ -41,11 +41,11 @@ export default function RecommendedActions({ incident }) {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
           <span style={{ fontSize: '1rem', color: '#f59e0b' }}>✨</span>
-          <h3 style={{ margin: 0, fontSize: '0.9375rem', fontWeight: 800, color: '#f8fafc' }}>
+          <h3 style={{ margin: 0, fontSize: '0.9375rem', fontWeight: 800, color: 'var(--text-heading)' }}>
             Recommended Actions {incident ? `— ${incident.title}` : ''}
           </h3>
         </div>
-        <span style={{ fontSize: '0.7rem', color: '#64748b' }}>
+        <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
           * Illustrative actions — no live dispatch or passenger notification is performed.
         </span>
       </div>
@@ -64,13 +64,14 @@ export default function RecommendedActions({ incident }) {
             <Card
               key={act.id}
               style={{
-                backgroundColor: '#0b121e',
-                border: '1px solid #1e293b',
+                backgroundColor: 'var(--bg-card)',
+                border: '1px solid var(--border-color)',
                 padding: '0.875rem 1rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                gap: '0.75rem'
+                gap: '0.75rem',
+                boxShadow: 'var(--shadow-card)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
@@ -80,7 +81,7 @@ export default function RecommendedActions({ incident }) {
                     height: '34px',
                     borderRadius: 'var(--radius-md)',
                     backgroundColor: 'rgba(37, 99, 235, 0.15)',
-                    color: '#3b82f6',
+                    color: '#2563eb',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -92,10 +93,10 @@ export default function RecommendedActions({ incident }) {
                 </div>
 
                 <div>
-                  <div style={{ fontSize: '0.875rem', fontWeight: 700, color: '#f8fafc', lineHeight: 1.3 }}>
+                  <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-heading)', lineHeight: 1.3 }}>
                     {act.title}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.15rem' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.15rem' }}>
                     {act.subtitle}
                   </div>
                 </div>
@@ -131,7 +132,7 @@ export default function RecommendedActions({ incident }) {
                       padding: '0.4rem 0.6rem',
                       backgroundColor: 'rgba(37, 99, 235, 0.15)',
                       border: '1px solid #2563eb',
-                      color: '#60a5fa',
+                      color: '#2563eb',
                       borderRadius: 'var(--radius-md)',
                       fontSize: '0.78125rem',
                       fontWeight: 700,

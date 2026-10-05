@@ -1,21 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
 
-:root {
-  /* Color Palette - Tamil Nadu Operations Control Center */
-  --bg-primary: #070b12;
-  --bg-surface: #0c1421;
-  --bg-surface-secondary: #131d2e;
-  --bg-surface-hover: #19273d;
-  --bg-surface-card: #0c1421;
-  --border-color: #172336;
-  --border-light: #22324b;
-  --border-subtle: rgba(255, 255, 255, 0.07);
+:root, [data-theme="dark"] {
+  /* Dark Theme Tokens - Operations Control Center & BUSFLOW Brand */
+  --bg-primary: #050b0d;
+  --bg-surface: #081418;
+  --bg-surface-secondary: #0c1a1e;
+  --bg-surface-hover: #122429;
+  --bg-surface-card: #081418;
+  --bg-card: rgba(8, 20, 24, 0.85);
+  --bg-card-hover: rgba(12, 28, 33, 0.95);
+  --bg-input: rgba(11, 23, 26, 0.9);
+  --sidebar-bg: #04090b;
+  --header-bg: #050b0d;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-green: rgba(0, 229, 153, 0.25);
+
+  /* Brand Colors */
+  --busflow-green: #00e599;
+  --busflow-green-hover: #00c885;
+  --busflow-green-glow: rgba(0, 229, 153, 0.3);
+  --busflow-dark: #050b0d;
 
   /* Text Colors */
   --text-primary: #ffffff;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
   --text-dim: #475569;
+  --text-heading: #ffffff;
 
   /* Status Tokens */
   --color-normal: #38bdf8;
@@ -24,27 +38,90 @@
   --color-at-risk-bg: rgba(245, 158, 11, 0.12);
   --color-severe-delay: #ef4444;
   --color-severe-delay-bg: rgba(239, 68, 68, 0.15);
-  --color-recovered: #10b981;
-  --color-recovered-bg: rgba(16, 185, 129, 0.12);
+  --color-recovered: #00e599;
+  --color-recovered-bg: rgba(0, 229, 153, 0.12);
+  --color-purple: #a855f7;
+  --color-purple-bg: rgba(168, 85, 247, 0.12);
 
   /* Functional Accents */
-  --primary-accent: #14b8a6;
-  --primary-accent-hover: #0d9488;
+  --primary-accent: #00e599;
+  --primary-accent-hover: #00c885;
+  --primary-accent-bg: rgba(0, 229, 153, 0.12);
   --accent-cyan: #22d3ee;
   --accent-teal: #14b8a6;
   --accent-teal-dark: #082e2b;
 
+  /* Shadows */
+  --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+
   /* Layout & Spacing */
-  --sidebar-width: 240px;
-  --sidebar-width-collapsed: 68px;
-  --header-height: 60px;
+  --sidebar-width: 230px;
+  --sidebar-width-collapsed: 72px;
+  --header-height: 56px;
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
 
   /* Typography */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+[data-theme="light"] {
+  /* Light Theme Tokens - Public Transport Control Center */
+  --bg-primary: #f0f4f7;
+  --bg-surface: #ffffff;
+  --bg-surface-secondary: #e6eef2;
+  --bg-surface-hover: #dbe7ec;
+  --bg-surface-card: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f7fafb;
+  --bg-input: #ffffff;
+  --sidebar-bg: #ffffff;
+  --header-bg: #ffffff;
+
+  --border-color: #d1dde2;
+  --border-light: #c0d1d8;
+  --border-subtle: #e2ebf0;
+  --border-green: rgba(0, 168, 107, 0.3);
+
+  /* Brand Colors */
+  --busflow-green: #00a86b;
+  --busflow-green-hover: #008f5b;
+  --busflow-green-glow: rgba(0, 168, 107, 0.2);
+  --busflow-dark: #0a181c;
+
+  /* Text Colors */
+  --text-primary: #0a181c;
+  --text-secondary: #4b5e65;
+  --text-muted: #6f828a;
+  --text-dim: #8fa0b5;
+  --text-heading: #071316;
+
+  /* Status Tokens */
+  --color-normal: #0284c7;
+  --color-normal-bg: rgba(2, 132, 199, 0.12);
+  --color-at-risk: #d97706;
+  --color-at-risk-bg: rgba(217, 119, 6, 0.12);
+  --color-severe-delay: #dc2626;
+  --color-severe-delay-bg: rgba(220, 38, 38, 0.12);
+  --color-recovered: #00a86b;
+  --color-recovered-bg: rgba(0, 168, 107, 0.12);
+  --color-purple: #9333ea;
+  --color-purple-bg: rgba(147, 51, 234, 0.12);
+
+  /* Functional Accents */
+  --primary-accent: #00a86b;
+  --primary-accent-hover: #008f5b;
+  --primary-accent-bg: rgba(0, 168, 107, 0.12);
+  --accent-cyan: #0284c7;
+  --accent-teal: #00a86b;
+  --accent-teal-dark: #e6f6ef;
+
+  /* Shadows */
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -61,6 +138,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
@@ -72,23 +150,23 @@ button {
   font-family: inherit;
 }
 
-/* Custom OCC Dark Scrollbar */
+/* Custom OCC Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080d16;
+  background: var(--bg-surface-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: var(--border-light);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: var(--text-dim);
 }
 
 /* Responsive Dashboard Breakpoints */
