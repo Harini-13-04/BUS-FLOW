@@ -1,0 +1,456 @@
+/* BUSFLOW Operations Control Center — Settings Page Stylesheet */
+
+.settings-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Page Header */
+.settings-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.settings-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.settings-subtitle {
+  font-size: 0.82rem;
+  color: #8fa0b5;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+/* Grids */
+.settings-grid-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+.settings-grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
+}
+
+/* Common Card Style */
+.settings-card {
+  background-color: #001119;
+  border: 1px solid #102636;
+  border-radius: 10px;
+  padding: 1.15rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+/* Card Header */
+.settings-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 1.15rem;
+}
+
+.settings-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a5b4fc; /* Lavender/periwinkle icon from reference */
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.settings-card-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.settings-card-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.settings-card-subtitle {
+  font-size: 0.74rem;
+  color: #8fa0b5;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Card 1: User & Access Fields */
+.user-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.user-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.user-field-label {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #cbd5e1;
+}
+
+.user-field-input {
+  background-color: #021420;
+  border: 1px solid #132c3f;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.84rem;
+  padding: 0.45rem 0.8rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.user-field-input:focus {
+  border-color: #00f5c4;
+}
+
+.user-field-input.read-only {
+  color: #64748b;
+  cursor: default;
+}
+
+/* Edit Profile Button */
+.edit-profile-btn {
+  background: rgba(0, 245, 196, 0.04);
+  border: 1px solid #00f5c4;
+  border-radius: 6px;
+  color: #00f5c4;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.15s ease;
+  outline: none;
+  margin-top: 0.15rem;
+}
+
+.edit-profile-btn:hover {
+  background: rgba(0, 245, 196, 0.12);
+  box-shadow: 0 0 10px rgba(0, 245, 196, 0.2);
+}
+
+/* Card 2: System Preferences Rows */
+.pref-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pref-label {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+.pref-theme-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.theme-toggle-btn.active-dark {
+  border: 1px solid #00f5c4;
+  background: rgba(0, 245, 196, 0.08);
+  color: #00f5c4;
+}
+
+.theme-toggle-btn.inactive {
+  background: #021420;
+  border: 1px solid #132c3f;
+  color: #cbd5e1;
+}
+
+.theme-toggle-btn.inactive:hover {
+  border-color: #224360;
+  color: #ffffff;
+}
+
+/* Dropdowns / Select Boxes */
+.custom-select-wrapper {
+  position: relative;
+  min-width: 140px;
+}
+
+.custom-select-trigger {
+  background: #021420;
+  border: 1px solid #132c3f;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 0.42rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+  user-select: none;
+}
+
+.custom-select-trigger:hover,
+.custom-select-wrapper.open .custom-select-trigger {
+  border-color: #00f5c4;
+}
+
+.custom-select-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #011623;
+  border: 1px solid #132c3f;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  z-index: 50;
+  overflow: hidden;
+}
+
+.custom-select-option {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.custom-select-option:hover,
+.custom-select-option.selected {
+  background: rgba(0, 245, 196, 0.12);
+  color: #00f5c4;
+}
+
+/* Distance Unit Group */
+.distance-unit-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.distance-unit-btn {
+  width: 62px;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.distance-unit-btn.active {
+  border: 1px solid #00f5c4;
+  background: rgba(0, 245, 196, 0.08);
+  color: #00f5c4;
+}
+
+.distance-unit-btn.inactive {
+  background: #021420;
+  border: 1px solid #132c3f;
+  color: #cbd5e1;
+}
+
+.distance-unit-btn.inactive:hover {
+  border-color: #224360;
+  color: #ffffff;
+}
+
+/* Card 3: Notifications Rows */
+.notif-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.82rem;
+}
+
+.notif-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.notif-label {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  width: 36px;
+  height: 20px;
+  border-radius: 9999px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+.toggle-switch.on {
+  background-color: #00e5a3;
+  box-shadow: 0 0 8px rgba(0, 229, 163, 0.35);
+}
+
+.toggle-switch.off {
+  background-color: #253448;
+}
+
+.toggle-knob {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.toggle-switch.on .toggle-knob {
+  background-color: #ffffff;
+  transform: translateX(18px);
+}
+
+.toggle-switch.off .toggle-knob {
+  background-color: #cbd5e1;
+  transform: translateX(3px);
+}
+
+/* Card 4: Data & Display */
+.data-display-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.82rem;
+}
+
+.data-display-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.data-display-row .custom-select-wrapper {
+  width: 52%;
+  min-width: 170px;
+}
+
+.data-display-label {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+/* Card 5: System Information */
+.sys-info-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.88rem;
+}
+
+.sys-info-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sys-info-label {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+.sys-info-value {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  font-weight: 400;
+  text-align: left;
+}
+
+.sys-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.sys-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #00f5c4;
+  box-shadow: 0 0 6px rgba(0, 245, 196, 0.8);
+}
+
+/* Responsive Rules */
+@media (max-width: 1080px) {
+  .settings-grid-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .settings-grid-top,
+  .settings-grid-bottom {
+    grid-template-columns: 1fr;
+  }
+}

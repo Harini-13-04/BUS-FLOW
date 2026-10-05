@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '../../../components/shared/Card';
 
-export default function RecommendedActions() {
+export default function RecommendedActions({ incident }) {
+  const navigate = useNavigate();
   const [applied, setApplied] = useState({});
 
   const handleApply = (id) => {
     setApplied((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const actions = [
+  const defaultActions = [
     {
       id: 'ACT-01',
       icon: '🚌',
-      title: 'Hold B21 at Vadapalani',
-      subtitle: 'Stabilize headway, avoid bunching'
+      title: 'Hold B12 at Stop 4 (Tech Park) — 3.0 min',
+      subtitle: 'Hold preceding bus B12 (180s) to absorb trailing headway gap',
+      scenarioId: 'SCENARIO_B14_HOLD'
     },
     {
       id: 'ACT-02',
@@ -29,13 +32,17 @@ export default function RecommendedActions() {
     }
   ];
 
+  const actions = (incident?.recommendedActions?.length > 0)
+    ? incident.recommendedActions
+    : defaultActions;
+
   return (
-    <div style={{ marginTop: '0.5rem' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <div style={{ marginTop: '0.25rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
           <span style={{ fontSize: '1rem', color: '#f59e0b' }}>✨</span>
-          <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#f8fafc' }}>
-            Recommended Actions
+          <h3 style={{ margin: 0, fontSize: '0.9375rem', fontWeight: 800, color: '#f8fafc' }}>
+            Recommended Actions {incident ? `— ${incident.title}` : ''}
           </h3>
         </div>
         <span style={{ fontSize: '0.7rem', color: '#64748b' }}>
@@ -43,7 +50,13 @@ export default function RecommendedActions() {
         </span>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '0.875rem'
+        }}
+      >
         {actions.map((act) => {
           const isApplied = applied[act.id];
 
@@ -53,25 +66,25 @@ export default function RecommendedActions() {
               style={{
                 backgroundColor: '#0b121e',
                 border: '1px solid #1e293b',
-                padding: '1.25rem',
+                padding: '0.875rem 1rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                gap: '1rem'
+                gap: '0.75rem'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                 <div
                   style={{
-                    width: '38px',
-                    height: '38px',
+                    width: '34px',
+                    height: '34px',
                     borderRadius: 'var(--radius-md)',
-                    backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                    backgroundColor: 'rgba(37, 99, 235, 0.15)',
                     color: '#3b82f6',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '1.125rem',
+                    fontSize: '1rem',
                     flexShrink: 0
                   }}
                 >
@@ -79,33 +92,62 @@ export default function RecommendedActions() {
                 </div>
 
                 <div>
-                  <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: '#f8fafc' }}>
+                  <div style={{ fontSize: '0.875rem', fontWeight: 700, color: '#f8fafc', lineHeight: 1.3 }}>
                     {act.title}
                   </div>
-                  <div style={{ fontSize: '0.78125rem', color: '#94a3b8', marginTop: '0.2rem' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.15rem' }}>
                     {act.subtitle}
                   </div>
                 </div>
               </div>
 
-              <button
-                type="button"
-                onClick={() => handleApply(act.id)}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  backgroundColor: isApplied ? 'rgba(16, 185, 129, 0.2)' : 'transparent',
-                  border: isApplied ? '1px solid #10b981' : '1px solid #10b981',
-                  color: '#10b981',
-                  borderRadius: 'var(--radius-md)',
-                  fontSize: '0.875rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  transition: 'all 0.15s ease'
-                }}
-              >
-                {isApplied ? '✓ Applied (Simulated)' : 'Apply'}
-              </button>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <button
+                  type="button"
+                  onClick={() => handleApply(act.id)}
+                  style={{
+                    flex: 1,
+                    padding: '0.4rem 0.6rem',
+                    backgroundColor: isApplied ? 'rgba(16, 185, 129, 0.2)' : 'transparent',
+                    border: '1px solid #10b981',
+                    color: '#10b981',
+                    borderRadius: 'var(--radius-md)',
+                    fontSize: '0.78125rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease',
+                    minWidth: '90px'
+                  }}
+                >
+                  {isApplied ? '✓ Applied' : 'Apply'}
+                </button>
+
+                {act.scenarioId && (
+                  <button
+                    type="button"
+                    onClick={() => navigate(`/simulation?scenario=${act.scenarioId}`)}
+                    style={{
+                      flex: 1,
+                      padding: '0.4rem 0.6rem',
+                      backgroundColor: 'rgba(37, 99, 235, 0.15)',
+                      border: '1px solid #2563eb',
+                      color: '#60a5fa',
+                      borderRadius: 'var(--radius-md)',
+                      fontSize: '0.78125rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '0.25rem',
+                      minWidth: '120px'
+                    }}
+                  >
+                    ⚡ Simulate Recovery ➔
+                  </button>
+                )}
+              </div>
             </Card>
           );
         })}
@@ -113,4 +155,5 @@ export default function RecommendedActions() {
     </div>
   );
 }
+
 

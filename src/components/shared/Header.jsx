@@ -1,4 +1,121 @@
 import React from 'react';
+<<<<<<< HEAD
+
+export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
+  return (
+    <header
+      style={{
+        height: '60px',
+        backgroundColor: '#001119',
+        borderBottom: '1px solid #102636',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 1.25rem',
+        position: 'sticky',
+        top: 0,
+        zIndex: 30,
+        userSelect: 'none'
+      }}
+    >
+      {/* Left: Hamburger + BUSFLOW Official Branding */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        {/* Hamburger Menu Toggle */}
+        <button
+          type="button"
+          onClick={onToggleSidebar}
+          title="Toggle Navigation Sidebar"
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#ffffff',
+            padding: '0.35rem',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'background-color 0.15s'
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.06)')}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+        >
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+            <line x1="1" y1="2" x2="21" y2="2" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" />
+            <line x1="1" y1="8" x2="21" y2="8" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" />
+            <line x1="1" y1="14" x2="21" y2="14" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" />
+          </svg>
+        </button>
+
+        {/* BUSFLOW Brand Group */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          {/* Cyan/Teal Front-Facing Bus Icon */}
+          <div
+            style={{
+              width: '30px',
+              height: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#00f5c4',
+              flexShrink: 0
+            }}
+          >
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              {/* Bus Outer Body with curved roof */}
+              <rect x="4" y="4" width="20" height="18" rx="4" stroke="#00f5c4" strokeWidth="2" fill="rgba(0, 245, 196, 0.08)" />
+              {/* Side Mirrors */}
+              <path d="M2 9v4M26 9v4" stroke="#00f5c4" strokeWidth="2" strokeLinecap="round" />
+              {/* Windshield */}
+              <path d="M7 8h14v5H7z" fill="#00f5c4" fillOpacity="0.25" stroke="#00f5c4" strokeWidth="1.2" />
+              {/* Headlights */}
+              <circle cx="8" cy="17.5" r="1.5" fill="#00f5c4" />
+              <circle cx="20" cy="17.5" r="1.5" fill="#00f5c4" />
+              {/* Front Grille Line */}
+              <line x1="11.5" y1="17.5" x2="16.5" y2="17.5" stroke="#00f5c4" strokeWidth="1.5" strokeLinecap="round" />
+              {/* Tires / Lower Base */}
+              <line x1="7" y1="23" x2="10" y2="23" stroke="#00f5c4" strokeWidth="2" strokeLinecap="round" />
+              <line x1="18" y1="23" x2="21" y2="23" stroke="#00f5c4" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </div>
+
+          {/* BUSFLOW Title & Subtitle */}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', alignItems: 'center', lineHeight: 1.1 }}>
+              <span
+                style={{
+                  fontSize: '1.18rem',
+                  fontWeight: 800,
+                  color: '#ffffff',
+                  letterSpacing: '-0.02em'
+                }}
+              >
+                BUS
+              </span>
+              <span
+                style={{
+                  fontSize: '1.18rem',
+                  fontWeight: 800,
+                  color: '#00f5c4',
+                  letterSpacing: '-0.02em',
+                  textShadow: '0 0 10px rgba(0, 245, 196, 0.4)'
+                }}
+              >
+                FLOW
+              </span>
+            </div>
+            <span
+              style={{
+                fontSize: '0.68rem',
+                fontWeight: 400,
+                color: '#8fa0b5',
+                letterSpacing: '0.01em',
+                marginTop: '1px'
+              }}
+            >
+              Tamil Nadu State Transport
+            </span>
+=======
 import { useTheme } from '../../context/ThemeContext';
 
 export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
@@ -9,90 +126,29 @@ export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
     <header
       style={{
         height: 'var(--header-height, 56px)',
-        backgroundColor: 'var(--header-bg, #070C18)',
-        borderBottom: '1px solid var(--border-color, rgba(148, 163, 184, 0.1))',
+        backgroundColor: 'var(--header-bg)',
+        borderBottom: '1px solid var(--border-color)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 1.5rem',
+        justifyContent: 'flex-end',
+        padding: '0 2rem',
         position: 'sticky',
         top: 0,
         zIndex: 30,
-        userSelect: 'none',
         transition: 'background-color 0.2s ease, border-color 0.2s ease'
       }}
     >
-      {/* Left Section: Sidebar Toggle & Collapsed Brand Header */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <button
-          type="button"
-          onClick={onToggleSidebar}
-          title="Toggle Navigation Sidebar"
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'var(--text-secondary, #94A3B8)',
-            padding: '0.4rem',
-            borderRadius: '6px',
-            cursor: 'pointer',
-            fontSize: '1.25rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
-
-        {isSidebarCollapsed && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
-            <div
-              style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '8px',
-                backgroundColor: 'var(--busflow-green, #00E5A3)',
-                color: '#070C18',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 800
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#070C18" strokeWidth="2.5">
-                <rect x="3" y="3" width="18" height="13" rx="2" />
-                <path d="M7 16v4" />
-                <path d="M17 16v4" />
-                <circle cx="7" cy="12" r="1.5" />
-                <circle cx="17" cy="12" r="1.5" />
-              </svg>
-            </div>
-            <div>
-              <span style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--text-primary, #FFFFFF)', letterSpacing: '-0.02em', display: 'block', lineHeight: 1.1 }}>
-                BUSFLOW
-              </span>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-secondary, #94A3B8)' }}>Tamil Nadu State Transport</span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Right Section: Theme Toggle, Notifications, & TNSTC Branding */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-        {/* Light / Dark Mode Theme Toggle */}
+        {/* Real Working Light / Dark Mode Toggle Pill */}
         <div
           onClick={toggleTheme}
           style={{
             display: 'flex',
             alignItems: 'center',
-            backgroundColor: isLight ? 'rgba(0, 0, 0, 0.06)' : '#0F172A',
-            border: '1px solid var(--border-color, rgba(148, 163, 184, 0.15))',
+            backgroundColor: isLight ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.06)',
             borderRadius: '9999px',
             padding: '3px',
+            border: '1px solid var(--border-color)',
             cursor: 'pointer',
             transition: 'all 0.2s ease'
           }}
@@ -105,7 +161,6 @@ export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
               height: '24px',
               borderRadius: '50%',
               backgroundColor: isLight ? '#ffffff' : 'transparent',
-              color: isLight ? '#f59e0b' : '#64748b',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -123,8 +178,7 @@ export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
               width: '24px',
               height: '24px',
               borderRadius: '50%',
-              backgroundColor: !isLight ? '#1e293b' : 'transparent',
-              color: !isLight ? '#f8fafc' : '#64748b',
+              backgroundColor: !isLight ? '#0c1a1d' : 'transparent',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -134,75 +188,211 @@ export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
             }}
           >
             🌙
+>>>>>>> 3b4e75566151e08388df1df77bb4eaef9469c0da
           </div>
         </div>
 
-        {/* Notification Bell Badge */}
-        <div style={{ position: 'relative', cursor: 'pointer' }} title="Notifications">
+<<<<<<< HEAD
+      {/* Right: Theme Toggle, Notification Bell, Small Clean TN Emblem & Corporation */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1.15rem' }}>
+        {/* Day/Night Theme Pill */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: '#021420',
+            border: '1px solid #132c3f',
+            borderRadius: '9999px',
+            padding: '2px 3px',
+            gap: '3px'
+=======
+        {/* Notification Bell with red dot */}
+        <div
+          style={{
+            position: 'relative',
+            cursor: 'pointer',
+            padding: '4px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+>>>>>>> 3b4e75566151e08388df1df77bb4eaef9469c0da
+          }}
+          title="Notifications"
+        >
+<<<<<<< HEAD
+          {/* Sun icon (Golden Yellow rays) */}
           <div
+            title="Light Mode"
             style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
-              backgroundColor: isLight ? '#f1f5f9' : '#0F172A',
-              border: '1px solid var(--border-color, rgba(148, 163, 184, 0.15))',
+              width: '24px',
+              height: '24px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'var(--text-secondary, #94A3B8)'
+              color: '#f59e0b',
+              cursor: 'pointer'
             }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="4.5" fill="#f59e0b" />
+              <line x1="12" y1="1.5" x2="12" y2="4" stroke="#f59e0b" />
+              <line x1="12" y1="20" x2="12" y2="22.5" stroke="#f59e0b" />
+              <line x1="4.5" y1="4.5" x2="6.3" y2="6.3" stroke="#f59e0b" />
+              <line x1="17.7" y1="17.7" x2="19.5" y2="19.5" stroke="#f59e0b" />
+              <line x1="1.5" y1="12" x2="4" y2="12" stroke="#f59e0b" />
+              <line x1="20" y1="12" x2="22.5" y2="12" stroke="#f59e0b" />
+              <line x1="4.5" y1="19.5" x2="6.3" y2="17.7" stroke="#f59e0b" />
+              <line x1="17.7" y1="6.3" x2="19.5" y2="4.5" stroke="#f59e0b" />
+            </svg>
+          </div>
+
+          {/* Active Moon Knob (White circle with dark crescent inside) */}
+          <div
+            title="Dark Theme Active"
+            style={{
+              backgroundColor: '#ffffff',
+              width: '24px',
+              height: '24px',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#001119',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.4)',
+              cursor: 'pointer'
+            }}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Notification Bell with Red Dot */}
+        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+          <button
+            type="button"
+            title="System Alerts"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#ffffff',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '4px'
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
               <path d="M13.73 21a2 2 0 0 1-3.46 0" />
             </svg>
-          </div>
+          </button>
+          {/* Red indicator dot */}
           <span
             style={{
               position: 'absolute',
-              top: '-2px',
-              right: '-2px',
-              width: '16px',
-              height: '16px',
+              top: '4px',
+              right: '4px',
+=======
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+          </svg>
+          <span
+            style={{
+              position: 'absolute',
+              top: '2px',
+              right: '2px',
+>>>>>>> 3b4e75566151e08388df1df77bb4eaef9469c0da
+              width: '7px',
+              height: '7px',
+              backgroundColor: '#ef4444',
               borderRadius: '50%',
-              backgroundColor: '#EF4444',
-              color: '#FFFFFF',
-              fontSize: '0.625rem',
-              fontWeight: 700,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: '2px solid var(--header-bg, #070C18)'
+<<<<<<< HEAD
+              boxShadow: '0 0 6px #ef4444'
+=======
+              boxShadow: '0 0 4px #ef4444'
+>>>>>>> 3b4e75566151e08388df1df77bb4eaef9469c0da
             }}
-          >
-            1
-          </span>
+          />
         </div>
 
-        {/* Tamil Nadu State Transport Corporation Branding Badge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
+<<<<<<< HEAD
+        {/* Small Clean Official Tamil Nadu Emblem + Corporation Text */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          {/* Official Emblem: small, clean, exact */}
           <div
             style={{
-              width: '34px',
-              height: '34px',
+              width: '28px',
+              height: '28px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, #F59E0B 0%, #D97706 100%)',
-              border: '2px solid var(--busflow-green, #00E5A3)',
+              overflow: 'hidden',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 10px rgba(0, 229, 163, 0.3)'
+              flexShrink: 0
             }}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
+            <img
+              src="/assets/tamil_nadu_emblem.png"
+              alt="Government of Tamil Nadu Emblem"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain'
+              }}
+            />
           </div>
-          <div style={{ textAlign: 'left' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary, #F8FAFC)', display: 'block', lineHeight: 1.1 }}>
+
+          {/* Text Title */}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span
+              style={{
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                color: '#ffffff',
+                lineHeight: 1.15,
+                letterSpacing: '-0.01em'
+=======
+        {/* Official Tamil Nadu Government Emblem & Identity */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <img
+            src="/tn-emblem.png"
+            alt="Government of Tamil Nadu"
+            style={{
+              width: '32px',
+              height: '32px',
+              objectFit: 'contain',
+              display: 'block'
+            }}
+          />
+          <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+            <span
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'var(--text-heading)',
+                lineHeight: 1.15
+>>>>>>> 3b4e75566151e08388df1df77bb4eaef9469c0da
+              }}
+            >
               Tamil Nadu
             </span>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-secondary, #94A3B8)', display: 'block', lineHeight: 1.1 }}>
+            <span
+              style={{
+<<<<<<< HEAD
+                fontSize: '0.7rem',
+                fontWeight: 400,
+                color: '#8fa0b5',
+=======
+                fontSize: '0.68rem',
+                color: 'var(--text-secondary)',
+>>>>>>> 3b4e75566151e08388df1df77bb4eaef9469c0da
+                lineHeight: 1.15
+              }}
+            >
               State Transport Corporation
             </span>
           </div>
@@ -211,4 +401,3 @@ export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
     </header>
   );
 }
-
