@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import PageHeader from '../../components/shared/PageHeader';
 import Button from '../../components/shared/Button';
 
 import IncidentKPIBar from './components/IncidentKPIBar';
-import IncidentFilterBar from './components/IncidentFilterBar';
 import IncidentTable from './components/IncidentTable';
 import IncidentDetailDrawer from './components/IncidentDetailDrawer';
 import RecommendedActions from './components/RecommendedActions';
@@ -13,32 +11,16 @@ import { INITIAL_MOCK_INCIDENTS } from './data/mockIncidentsData';
 
 export default function IncidentsPage() {
   const [incidents, setIncidents] = useState(INITIAL_MOCK_INCIDENTS);
-  const [selectedIncidentId, setSelectedIncidentId] = useState('INC-B14-STALL'); // Default to Traffic Congestion for reference screenshot
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeFilter, setActiveFilter] = useState('ALL');
+  const [selectedIncidentId, setSelectedIncidentId] = useState('INC-B14-STALL');
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Filter & Search Logic
-  const filteredIncidents = incidents.filter((item) => {
-    if (activeFilter === 'SEVERE_DELAY' && (item.severityStatus !== 'SEVERE_DELAY' || item.isDemoResolved)) return false;
-    if (activeFilter === 'AT_RISK' && (item.severityStatus !== 'AT_RISK' || item.isDemoResolved)) return false;
-    if (activeFilter === 'RESOLVED' && !item.isDemoResolved && item.severityStatus !== 'RECOVERED') return false;
-
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      const matchesId = item.id.toLowerCase().includes(q);
-      const matchesBus = item.busId.toLowerCase().includes(q);
-      const matchesLoc = item.location.toLowerCase().includes(q);
-      const matchesTitle = item.title.toLowerCase().includes(q);
-      return matchesId || matchesBus || matchesLoc || matchesTitle;
-    }
-
-    return true;
-  });
 
   const selectedIncident = incidents.find((i) => i.id === selectedIncidentId);
 
   // Local state Handlers
+  const handleFocusB14Stall = () => {
+    setSelectedIncidentId('INC-B14-STALL');
+  };
+
   const handleToggleResolve = (id) => {
     setIncidents((prev) =>
       prev.map((item) =>
@@ -53,41 +35,41 @@ export default function IncidentsPage() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-      {/* Top Header Bar matching reference screenshot 1 */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {/* Top Header Bar matching reference screenshot 3 */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div>
-          <h1 style={{ margin: 0, fontSize: '1.75rem', fontWeight: 800, color: '#f8fafc' }}>
+          <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em' }}>
             Incidents
           </h1>
-          <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.875rem', color: '#94a3b8' }}>
-            Detect, manage and mitigate disruptions in real-time [Simulated Data]
+          <p style={{ margin: '0.15rem 0 0 0', fontSize: '0.8125rem', color: '#94a3b8' }}>
+            Detect, manage and mitigate disruptions in real-time
           </p>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <div style={{ fontSize: '0.8125rem', color: '#cbd5e1', fontWeight: 600 }}>
-            Wed, 24 Jul 2024 &nbsp; <strong style={{ color: '#f8fafc' }}>10:24 AM</strong>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', flexWrap: 'wrap' }}>
+          <div style={{ fontSize: '0.8125rem', color: '#cbd5e1', fontWeight: 500 }}>
+            Wed, 24 Jul 2024 &nbsp; <strong style={{ color: '#f8fafc', fontWeight: 700 }}>10:24 AM</strong>
           </div>
           <div
             style={{
-              fontSize: '0.75rem',
+              fontSize: '0.72rem',
               fontWeight: 700,
               backgroundColor: 'rgba(16, 185, 129, 0.15)',
               color: '#10b981',
-              padding: '0.25rem 0.75rem',
+              padding: '0.2rem 0.65rem',
               borderRadius: '9999px',
               border: '1px solid rgba(16, 185, 129, 0.3)',
               display: 'flex',
               alignItems: 'center',
-              gap: '0.4rem'
+              gap: '0.35rem'
             }}
           >
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#10b981' }} />
             Live Monitoring
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Button size="sm" variant="secondary" onClick={() => setSelectedIncidentId('INC-B14-STALL')}>
+            <Button size="sm" variant="secondary" onClick={handleFocusB14Stall}>
               Focus B14 Stall
             </Button>
             <Button size="sm" variant="primary" onClick={() => setIsModalOpen(true)}>
@@ -97,30 +79,21 @@ export default function IncidentsPage() {
         </div>
       </div>
 
-      {/* Dynamic Top KPI Row */}
+      {/* Dynamic Top 4 KPI Row matching reference screenshot 3 */}
       <IncidentKPIBar incidents={incidents} />
 
-      {/* Search & Severity Filter Bar */}
-      <IncidentFilterBar
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        activeFilter={activeFilter}
-        onFilterChange={setActiveFilter}
-        incidents={incidents}
-      />
-
-      {/* 2-Column Responsive Control-Room Layout */}
+      {/* 2-Column Responsive OCC Control-Room Layout: Active Incidents (Left ~40%) vs Incident Details (Right ~60%) */}
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: selectedIncident ? 'minmax(300px, 4.2fr) minmax(340px, 5.8fr)' : '1fr',
-          gap: '1.25rem',
+          gridTemplateColumns: selectedIncident ? 'minmax(280px, 4fr) minmax(340px, 6fr)' : '1fr',
+          gap: '1rem',
           alignItems: 'start'
         }}
       >
         {/* Left Column: Active Incidents Registry List */}
         <IncidentTable
-          incidents={filteredIncidents}
+          incidents={incidents}
           selectedIncidentId={selectedIncidentId}
           onSelectIncident={(id) => setSelectedIncidentId(id)}
         />
@@ -135,8 +108,8 @@ export default function IncidentsPage() {
         )}
       </div>
 
-      {/* Bottom Section: Recommended Actions */}
-      <RecommendedActions />
+      {/* Bottom Section: Recommended Actions (3 Cards in 1 Row) */}
+      <RecommendedActions incident={selectedIncident} />
 
       {/* Log Incident Modal */}
       <LogIncidentModal
@@ -147,4 +120,5 @@ export default function IncidentsPage() {
     </div>
   );
 }
+
 

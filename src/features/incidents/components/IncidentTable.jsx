@@ -10,9 +10,9 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
           View All →
         </span>
       }
-      style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '1rem' }}
+      style={{ backgroundColor: '#0b121e', border: '1px solid #1e293b', padding: '0.875rem' }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
         {incidents.map((item) => {
           const isSelected = item.id === selectedIncidentId;
           const isMajor = item.severityBadge === 'Major';
@@ -42,7 +42,7 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                padding: '0.875rem 1rem',
+                padding: '0.75rem 0.875rem',
                 backgroundColor: isSelected ? '#1e293b' : '#0f172a',
                 borderLeft: `4px solid ${borderLeftColor}`,
                 borderTop: '1px solid #1e293b',
@@ -53,18 +53,18 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
                 transition: 'all 0.15s ease'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                 <div
                   style={{
-                    width: '36px',
-                    height: '36px',
+                    width: '32px',
+                    height: '32px',
                     borderRadius: 'var(--radius-md)',
                     backgroundColor: iconBg,
                     color: iconColor,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '1.125rem',
+                    fontSize: '1rem',
                     flexShrink: 0
                   }}
                 >
@@ -72,17 +72,17 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
                 </div>
 
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontWeight: 800, fontSize: '0.9375rem', color: '#f8fafc' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                    <span style={{ fontWeight: 800, fontSize: '0.875rem', color: '#f8fafc' }}>
                       {item.title}
                     </span>
                     <span
                       style={{
-                        fontSize: '0.6875rem',
+                        fontSize: '0.65rem',
                         fontWeight: 700,
                         backgroundColor: isMajor ? 'rgba(239, 68, 68, 0.25)' : 'rgba(245, 158, 11, 0.25)',
                         color: isMajor ? '#ef4444' : '#f59e0b',
-                        padding: '0.1rem 0.45rem',
+                        padding: '0.1rem 0.4rem',
                         borderRadius: '9999px'
                       }}
                     >
@@ -90,21 +90,21 @@ export default function IncidentTable({ incidents, selectedIncidentId, onSelectI
                     </span>
                   </div>
 
-                  <div style={{ fontSize: '0.78125rem', color: '#cbd5e1', marginTop: '0.2rem' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#cbd5e1', marginTop: '0.15rem' }}>
                     {item.location}
                   </div>
 
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.15rem' }}>
+                  <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: '0.1rem' }}>
                     {item.affectsText}
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
                   {item.reportedTime}
                 </span>
-                <span style={{ color: '#64748b', fontSize: '1rem' }}>›</span>
+                <span style={{ color: '#64748b', fontSize: '0.875rem' }}>›</span>
               </div>
             </div>
           );

@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import ScenarioControls from './components/ScenarioControls';
 import IllustrativeImpactComparison from './components/IllustrativeImpactComparison';
 import BusImpactTable from './components/BusImpactTable';
+import SavedScenarioDrawer from './components/SavedScenarioDrawer';
+import CompareScenarioModal from './components/CompareScenarioModal';
 
-import { MOCK_SIMULATION_SCENARIOS } from './data/mockSimulationData';
+import { MOCK_SIMULATION_SCENARIOS, SAVED_INTERVENTIONS } from './data/mockSimulationData';
 
 export default function SimulationPage() {
+  const [searchParams] = useSearchParams();
+  const queryScenario = searchParams.get('scenario');
   const [scenarios] = useState(MOCK_SIMULATION_SCENARIOS);
-  const [selectedScenarioId, setSelectedScenarioId] = useState('SCENARIO_B14_HOLD');
+  const [selectedScenarioId, setSelectedScenarioId] = useState(queryScenario || 'SCENARIO_B14_HOLD');
   const [isApplied, setIsApplied] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
-  const [activeTab, setActiveTab] = useState('run');
+  const [demandPct, setDemandPct] = useState(30);
+  const [isSavedOpen, setIsSavedOpen] = useState(false);
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
+
+  useEffect(() => {
+    if (queryScenario) {
+      setSelectedScenarioId(queryScenario);
+    }
+  }, [queryScenario]);
 
   const activeScenario = scenarios.find((s) => s.id === selectedScenarioId) || scenarios[0];
 
@@ -24,55 +37,57 @@ export default function SimulationPage() {
   const handleReset = () => {
     setIsRunning(false);
     setIsApplied(false);
+    setDemandPct(30);
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-      {/* Top Header Bar matching reference screenshot 2 */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {/* Top Header Bar matching reference screenshot 3 */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div>
-          <h1 style={{ margin: 0, fontSize: '1.75rem', fontWeight: 800, color: '#f8fafc' }}>
+          <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em' }}>
             Simulation
           </h1>
-          <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.875rem', color: '#94a3b8' }}>
-            Model and analyze bus operations under different scenarios [Simulated Model]
+          <p style={{ margin: '0.15rem 0 0 0', fontSize: '0.8125rem', color: '#94a3b8' }}>
+            Model and analyze bus operations under different scenarios
           </p>
         </div>
 
-        <div style={{ fontSize: '0.8125rem', color: '#cbd5e1', fontWeight: 600 }}>
-          Wed, 24 Jul 2024 &nbsp; <strong style={{ color: '#f8fafc' }}>10:24 AM</strong>
+        <div style={{ fontSize: '0.8125rem', color: '#cbd5e1', fontWeight: 500 }}>
+          Wed, 24 Jul 2024 &nbsp; <strong style={{ color: '#f8fafc', fontWeight: 700 }}>10:24 AM</strong>
         </div>
       </div>
 
-      {/* Top Navigation Tabs matching reference screenshot 2 */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+      {/* Top Navigation Action Pills matching reference screenshot 3 */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', flexWrap: 'wrap' }}>
         <button
           type="button"
-          onClick={() => setActiveTab('run')}
+          onClick={handleToggleRun}
           style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: activeTab === 'run' ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
-            color: activeTab === 'run' ? '#10b981' : '#94a3b8',
-            border: activeTab === 'run' ? '1px solid #10b981' : '1px solid #1e293b',
+            padding: '0.45rem 0.9rem',
+            backgroundColor: isRunning ? '#1e293b' : '#10b981',
+            color: isRunning ? '#cbd5e1' : '#031019',
+            border: isRunning ? '1px solid #334155' : '1px solid #10b981',
             borderRadius: 'var(--radius-md)',
             fontSize: '0.8125rem',
-            fontWeight: 700,
+            fontWeight: 800,
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.4rem'
+            gap: '0.4rem',
+            boxShadow: '0 2px 10px rgba(16, 185, 129, 0.3)'
           }}
         >
-          ▶ Run Simulation
+          <span>▶</span> {isRunning ? 'Pause Simulation' : 'Run Simulation'}
         </button>
         <button
           type="button"
-          onClick={() => setActiveTab('compare')}
+          onClick={() => setIsCompareOpen(true)}
           style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: activeTab === 'compare' ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
-            color: activeTab === 'compare' ? '#10b981' : '#94a3b8',
-            border: activeTab === 'compare' ? '1px solid #10b981' : '1px solid #1e293b',
+            padding: '0.45rem 0.9rem',
+            backgroundColor: isCompareOpen ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
+            color: isCompareOpen ? '#10b981' : '#cbd5e1',
+            border: '1px solid #1e293b',
             borderRadius: 'var(--radius-md)',
             fontSize: '0.8125rem',
             fontWeight: 700,
@@ -82,16 +97,16 @@ export default function SimulationPage() {
             gap: '0.4rem'
           }}
         >
-          📊 Compare Scenarios
+          <span>📊</span> Compare Scenarios
         </button>
         <button
           type="button"
-          onClick={() => setActiveTab('saved')}
+          onClick={() => setIsSavedOpen(true)}
           style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: activeTab === 'saved' ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
-            color: activeTab === 'saved' ? '#10b981' : '#94a3b8',
-            border: activeTab === 'saved' ? '1px solid #10b981' : '1px solid #1e293b',
+            padding: '0.45rem 0.9rem',
+            backgroundColor: isSavedOpen ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
+            color: isSavedOpen ? '#10b981' : '#cbd5e1',
+            border: '1px solid #1e293b',
             borderRadius: 'var(--radius-md)',
             fontSize: '0.8125rem',
             fontWeight: 700,
@@ -101,16 +116,16 @@ export default function SimulationPage() {
             gap: '0.4rem'
           }}
         >
-          📁 Saved Scenarios
+          <span>📁</span> Saved Scenarios
         </button>
       </div>
 
-      {/* 2-Column Desktop OCC Layout: Scenario Config (Left) vs Expected Impact (Right) */}
+      {/* 2-Column Desktop OCC Dashboard Layout: Scenario Config (~33%) vs Expected Impact (~67%) */}
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(300px, 4fr) minmax(340px, 6fr)',
-          gap: '1.25rem',
+          gridTemplateColumns: 'minmax(290px, 3.3fr) minmax(340px, 6.7fr)',
+          gap: '1rem',
           alignItems: 'start'
         }}
       >
@@ -126,18 +141,42 @@ export default function SimulationPage() {
           isRunning={isRunning}
           onToggleRun={handleToggleRun}
           onReset={handleReset}
+          demandPct={demandPct}
+          onDemandChange={setDemandPct}
         />
 
         {/* Right Column: Expected Impact Summary, Headway Comparison Line Chart & Dual Bar Charts */}
         <IllustrativeImpactComparison
           scenario={activeScenario}
           isApplied={isApplied}
+          demandPct={demandPct}
         />
       </div>
 
-      {/* Full-Width Section: Bus-wise Impact Table (B21) */}
-      <BusImpactTable isApplied={isApplied} />
+      {/* Full-Width Section: Bus-wise Impact Table */}
+      <BusImpactTable scenario={activeScenario} isApplied={isApplied} />
+
+      {/* Saved Scenarios Drawer Modal */}
+      <SavedScenarioDrawer
+        isOpen={isSavedOpen}
+        onClose={() => setIsSavedOpen(false)}
+        savedScenarios={SAVED_INTERVENTIONS}
+        onSelectSaved={(id) => {
+          setSelectedScenarioId(id);
+          setIsApplied(false);
+          setIsRunning(false);
+        }}
+      />
+
+      {/* Compare Scenarios Modal */}
+      <CompareScenarioModal
+        isOpen={isCompareOpen}
+        onClose={() => setIsCompareOpen(false)}
+        scenarios={scenarios}
+      />
     </div>
   );
 }
+
+
 

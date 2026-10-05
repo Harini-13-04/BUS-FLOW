@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '../../../components/shared/Card';
 import StatusBadge from '../../../components/shared/StatusBadge';
 import Button from '../../../components/shared/Button';
 
 export default function BusTelemetryDrawer({ bus, onClose }) {
+  const navigate = useNavigate();
   if (!bus) return null;
 
   const isStalled = bus.isStalled;
@@ -59,13 +61,25 @@ export default function BusTelemetryDrawer({ bus, onClose }) {
           backgroundColor: isStalled ? 'var(--color-severe-delay-bg)' : 'var(--bg-surface-secondary)',
           border: isStalled ? '1px solid rgba(239, 68, 68, 0.4)' : '1px solid var(--border-color)',
           fontSize: '0.8125rem',
-          color: isStalled ? 'var(--text-primary)' : 'var(--text-secondary)'
+          color: isStalled ? 'var(--text-primary)' : 'var(--text-secondary)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem'
         }}
       >
-        <div style={{ fontWeight: 600, marginBottom: '0.2rem', color: isStalled ? 'var(--color-severe-delay)' : 'var(--text-primary)' }}>
+        <div style={{ fontWeight: 600, color: isStalled ? 'var(--color-severe-delay)' : 'var(--text-primary)' }}>
           {isStalled ? '⚠️ Active Stall Event Detected' : 'Operational Log'}
         </div>
         <div>{bus.note}</div>
+        <div style={{ marginTop: '0.25rem' }}>
+          <Button
+            size="sm"
+            variant="primary"
+            onClick={() => navigate(`/simulation?scenario=${bus.id === 'B14' || isStalled ? 'SCENARIO_B14_HOLD' : 'SCENARIO_B21_DEMAND'}`)}
+          >
+            ⚡ Open Simulation Recovery ➔
+          </Button>
+        </div>
       </div>
     </Card>
   );
