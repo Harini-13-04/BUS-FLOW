@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
 import Home from './pages/Home';
 import ComingSoon from './pages/ComingSoon';
+import LiveMapPage from './features/live-map/LiveMapPage';
+import SimulationPage from './features/simulation/SimulationPage';
+import IncidentsPage from './features/incidents/IncidentsPage';
 
 export default function App() {
   return (
@@ -20,9 +23,9 @@ export default function App() {
           <Route path="/about" element={<ComingSoon pageTitle="About BUSFLOW" />} />
 
           {/* JV Routes */}
-          <Route path="/live-map" element={<ComingSoon pageTitle="Live Map" />} />
-          <Route path="/simulation" element={<ComingSoon pageTitle="Simulation Control" />} />
-          <Route path="/incidents" element={<ComingSoon pageTitle="Incident Center" />} />
+          <Route path="/live-map" element={<LiveMapPage />} />
+          <Route path="/simulation" element={<SimulationPage />} />
+          <Route path="/incidents" element={<IncidentsPage />} />
 
           {/* Jaisha Routes */}
           <Route path="/controllers" element={<ComingSoon pageTitle="Controller Management" />} />
