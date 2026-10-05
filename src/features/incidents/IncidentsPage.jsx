@@ -57,17 +57,17 @@ export default function IncidentsPage() {
       {/* Top Header Bar matching reference screenshot 1 */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <h1 style={{ margin: 0, fontSize: '1.75rem', fontWeight: 800, color: '#f8fafc' }}>
+          <h1 style={{ margin: 0, fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-heading)' }}>
             Incidents
           </h1>
-          <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.875rem', color: '#94a3b8' }}>
+          <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
             Detect, manage and mitigate disruptions in real-time [Simulated Data]
           </p>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <div style={{ fontSize: '0.8125rem', color: '#cbd5e1', fontWeight: 600 }}>
-            Wed, 24 Jul 2024 &nbsp; <strong style={{ color: '#f8fafc' }}>10:24 AM</strong>
+          <div style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
+            Wed, 24 Jul 2024 &nbsp; <strong style={{ color: 'var(--text-heading)' }}>10:24 AM</strong>
           </div>
           <div
             style={{

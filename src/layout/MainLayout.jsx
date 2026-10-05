@@ -11,6 +11,7 @@ export default function MainLayout() {
   };
 
   return (
+<<<<<<< HEAD
     <div
       style={{
         display: 'flex',
@@ -22,6 +23,11 @@ export default function MainLayout() {
     >
       {/* Full-width Top OCC Header */}
       <Header isSidebarCollapsed={isSidebarCollapsed} onToggleSidebar={toggleSidebar} />
+=======
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }}>
+      {/* Shared Sidebar */}
+      <Sidebar isCollapsed={isSidebarCollapsed} onToggle={toggleSidebar} />
+>>>>>>> 3b4e75566151e08388df1df77bb4eaef9469c0da
 
       {/* Main Workspace: Left Sidebar + Page Workspace */}
       <div
