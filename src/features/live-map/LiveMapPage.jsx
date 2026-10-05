@@ -19,10 +19,10 @@ export default function LiveMapPage() {
       {/* Top Bar: Title & Search/Filter Controls */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <h1 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#f8fafc', margin: 0, letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-heading)', margin: 0, letterSpacing: '-0.02em' }}>
             Live Map
           </h1>
-          <p style={{ fontSize: '0.8125rem', color: '#94a3b8', margin: '0.2rem 0 0 0' }}>
+          <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', margin: '0.2rem 0 0 0' }}>
             Real-time tracking of buses across Tamil Nadu [Simulated Vehicle Tracking]
           </p>
         </div>
@@ -38,15 +38,16 @@ export default function LiveMapPage() {
               style={{
                 width: '100%',
                 padding: '0.5rem 0.875rem 0.5rem 2rem',
-                backgroundColor: '#0f172a',
-                color: '#f8fafc',
-                border: '1px solid #1e293b',
+                backgroundColor: 'var(--bg-input)',
+                color: 'var(--text-primary)',
+                border: '1px solid var(--border-color)',
                 borderRadius: 'var(--radius-md)',
                 fontSize: '0.8125rem',
-                outline: 'none'
+                outline: 'none',
+                boxShadow: 'var(--shadow-sm)'
               }}
             />
-            <span style={{ position: 'absolute', left: '0.625rem', top: '50%', transform: 'translateY(-50%)', color: '#64748b', fontSize: '0.875rem' }}>
+            <span style={{ position: 'absolute', left: '0.625rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
               🔍
             </span>
           </div>
@@ -54,9 +55,9 @@ export default function LiveMapPage() {
           <select
             style={{
               padding: '0.5rem 0.875rem',
-              backgroundColor: '#0f172a',
-              color: '#f8fafc',
-              border: '1px solid #1e293b',
+              backgroundColor: 'var(--bg-input)',
+              color: 'var(--text-primary)',
+              border: '1px solid var(--border-color)',
               borderRadius: 'var(--radius-md)',
               fontSize: '0.8125rem',
               cursor: 'pointer'
@@ -71,9 +72,9 @@ export default function LiveMapPage() {
             onClick={() => setSelectedBusId('B14')}
             style={{
               padding: '0.5rem 0.875rem',
-              backgroundColor: selectedBusId === 'B14' ? '#ef4444' : '#0f172a',
-              color: '#ffffff',
-              border: '1px solid #1e293b',
+              backgroundColor: selectedBusId === 'B14' ? 'var(--color-severe-delay)' : 'var(--bg-surface-secondary)',
+              color: selectedBusId === 'B14' ? '#ffffff' : 'var(--text-primary)',
+              border: '1px solid var(--border-color)',
               borderRadius: 'var(--radius-md)',
               fontSize: '0.8125rem',
               fontWeight: 700,

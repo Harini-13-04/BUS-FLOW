@@ -31,16 +31,16 @@ export default function SimulationPage() {
       {/* Top Header Bar matching reference screenshot 2 */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <h1 style={{ margin: 0, fontSize: '1.75rem', fontWeight: 800, color: '#f8fafc' }}>
+          <h1 style={{ margin: 0, fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-heading)' }}>
             Simulation
           </h1>
-          <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.875rem', color: '#94a3b8' }}>
+          <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
             Model and analyze bus operations under different scenarios [Simulated Model]
           </p>
         </div>
 
-        <div style={{ fontSize: '0.8125rem', color: '#cbd5e1', fontWeight: 600 }}>
-          Wed, 24 Jul 2024 &nbsp; <strong style={{ color: '#f8fafc' }}>10:24 AM</strong>
+        <div style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
+          Wed, 24 Jul 2024 &nbsp; <strong style={{ color: 'var(--text-heading)' }}>10:24 AM</strong>
         </div>
       </div>
 
@@ -51,9 +51,9 @@ export default function SimulationPage() {
           onClick={() => setActiveTab('run')}
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: activeTab === 'run' ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
-            color: activeTab === 'run' ? '#10b981' : '#94a3b8',
-            border: activeTab === 'run' ? '1px solid #10b981' : '1px solid #1e293b',
+            backgroundColor: activeTab === 'run' ? 'var(--primary-accent-bg)' : 'var(--bg-surface-secondary)',
+            color: activeTab === 'run' ? 'var(--busflow-green)' : 'var(--text-secondary)',
+            border: activeTab === 'run' ? '1px solid var(--busflow-green)' : '1px solid var(--border-color)',
             borderRadius: 'var(--radius-md)',
             fontSize: '0.8125rem',
             fontWeight: 700,
@@ -70,9 +70,9 @@ export default function SimulationPage() {
           onClick={() => setActiveTab('compare')}
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: activeTab === 'compare' ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
-            color: activeTab === 'compare' ? '#10b981' : '#94a3b8',
-            border: activeTab === 'compare' ? '1px solid #10b981' : '1px solid #1e293b',
+            backgroundColor: activeTab === 'compare' ? 'var(--primary-accent-bg)' : 'var(--bg-surface-secondary)',
+            color: activeTab === 'compare' ? 'var(--busflow-green)' : 'var(--text-secondary)',
+            border: activeTab === 'compare' ? '1px solid var(--busflow-green)' : '1px solid var(--border-color)',
             borderRadius: 'var(--radius-md)',
             fontSize: '0.8125rem',
             fontWeight: 700,
@@ -89,9 +89,9 @@ export default function SimulationPage() {
           onClick={() => setActiveTab('saved')}
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: activeTab === 'saved' ? 'rgba(16, 185, 129, 0.15)' : '#0f172a',
-            color: activeTab === 'saved' ? '#10b981' : '#94a3b8',
-            border: activeTab === 'saved' ? '1px solid #10b981' : '1px solid #1e293b',
+            backgroundColor: activeTab === 'saved' ? 'var(--primary-accent-bg)' : 'var(--bg-surface-secondary)',
+            color: activeTab === 'saved' ? 'var(--busflow-green)' : 'var(--text-secondary)',
+            border: activeTab === 'saved' ? '1px solid var(--busflow-green)' : '1px solid var(--border-color)',
             borderRadius: 'var(--radius-md)',
             fontSize: '0.8125rem',
             fontWeight: 700,
