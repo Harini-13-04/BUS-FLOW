@@ -6,19 +6,19 @@ export const INITIAL_MOCK_INCIDENTS = [
     id: 'INC-B14-STALL',
     routeId: 'Route B14',
     busId: 'B14',
-    title: 'Traffic Congestion',
+    title: 'Vehicle Stall (B14)',
     severityBadge: 'Major',
     severityStatus: 'SEVERE_DELAY',
     reportedTime: '10:18 AM',
-    location: 'Vadapalani - Ashok Nagar',
-    affectsText: 'Affects B21, B23, B24',
+    location: 'Tech Park / Vadapalani',
+    affectsText: 'Affects trailing buses B21, B23, B24',
     affectedBusBadges: [
       { id: 'B21', color: '#ef4444' },
       { id: 'B23', color: '#2563eb' },
       { id: 'B24', color: '#f59e0b' }
     ],
-    cause: 'Heavy traffic due to road work',
-    impact: 'Average delay: 5-8 min',
+    cause: 'Engine overheating / Mechanical vehicle stall',
+    impact: '5.0 min stall • Trailing gap & bunching risk',
     currentStatus: 'Ongoing',
     detectedAt: '10:18 AM (AI Detection)',
     description: 'Bus B14 reported a temporary 5.0-minute vehicle stall near Tech Park / Vadapalani. Creates trailing headway gap and bunching risk [Simulated].',
@@ -35,10 +35,11 @@ export const INITIAL_MOCK_INCIDENTS = [
       {
         id: 'ACT-01',
         icon: '🚌',
-        title: 'Hold B21 at Vadapalani',
-        subtitle: 'Stabilize headway, avoid bunching',
+        title: 'Hold B12 at Stop 4 (Tech Park) — 3.0 min',
+        subtitle: 'Hold preceding bus B12 (180s) to absorb trailing headway gap',
         note: 'Mock Recommendation [Illustrative Only]',
-        buttonText: 'Apply'
+        buttonText: 'Apply',
+        scenarioId: 'SCENARIO_B14_HOLD'
       },
       {
         id: 'ACT-02',
