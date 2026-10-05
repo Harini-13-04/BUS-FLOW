@@ -6,6 +6,8 @@ import ComingSoon from './pages/ComingSoon';
 import LiveMapPage from './features/live-map/LiveMapPage';
 import SimulationPage from './features/simulation/SimulationPage';
 import IncidentsPage from './features/incidents/IncidentsPage';
+import ControllersPage from './features/controller/ControllersPage';
+import AnalyticsPage from './features/analytics/AnalyticsPage';
 
 import { ThemeProvider } from './context/ThemeContext';
 import RoutesPage from './pages/RoutesPage';
@@ -32,8 +34,8 @@ export default function App() {
           <Route path="/incidents" element={<IncidentsPage />} />
 
           {/* Jaisha Routes */}
-          <Route path="/controllers" element={<ComingSoon pageTitle="Controller Management" />} />
-          <Route path="/analytics" element={<ComingSoon pageTitle="Performance Analytics" />} />
+          <Route path="/controllers" element={<ControllersPage />} />
+          <Route path="/analytics" element={<AnalyticsPage />} />
 
           {/* Catch-all fallback */}
           <Route path="*" element={<Home />} />
@@ -43,3 +45,5 @@ export default function App() {
   </ThemeProvider>
 );
 }
+
+
