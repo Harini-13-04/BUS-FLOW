@@ -14,36 +14,41 @@ export default function MainLayout() {
     <div
       style={{
         display: 'flex',
+        flexDirection: 'column',
         minHeight: '100vh',
         backgroundColor: 'var(--bg-primary, #080d19)',
       }}
     >
-      {/* Shared Sidebar */}
-      <Sidebar
-        isCollapsed={isSidebarCollapsed}
-        onToggle={toggleSidebar}
+      {/* Full Width Top Header */}
+      <Header
+        isSidebarCollapsed={isSidebarCollapsed}
+        onToggleSidebar={toggleSidebar}
       />
 
-      {/* Main Workspace Area */}
+      {/* Body Area (Sidebar + Main Content) directly below Header */}
       <div
         style={{
-          flex: 1,
           display: 'flex',
-          flexDirection: 'column',
-          minWidth: 0,
-          overflow: 'hidden',
+          flex: 1,
+          minHeight: 0,
+          position: 'relative',
         }}
       >
-        <Header
-          isSidebarCollapsed={isSidebarCollapsed}
-          onToggleSidebar={toggleSidebar}
+        {/* Shared Sidebar underneath Header */}
+        <Sidebar
+          isCollapsed={isSidebarCollapsed}
+          onToggle={toggleSidebar}
         />
 
+        {/* Main Workspace Area to the right of Sidebar */}
         <main
           style={{
             flex: 1,
-            padding: '1.25rem 1.5rem',
+            display: 'flex',
+            flexDirection: 'column',
+            minWidth: 0,
             overflowY: 'auto',
+            padding: '1.25rem 1.5rem',
             backgroundColor: 'var(--bg-primary, #080d19)',
           }}
         >

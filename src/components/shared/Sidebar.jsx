@@ -98,7 +98,7 @@ export default function Sidebar({ isCollapsed, onToggle }) {
       style={{
         width: isCollapsed ? 'var(--sidebar-width-collapsed, 72px)' : 'var(--sidebar-width, 230px)',
         minWidth: isCollapsed ? 'var(--sidebar-width-collapsed, 72px)' : 'var(--sidebar-width, 230px)',
-        height: '100vh',
+        height: 'calc(100vh - var(--header-height, 56px))',
         backgroundColor: 'var(--sidebar-bg, #04090b)',
         borderRight: '1px solid var(--border-color, rgba(255, 255, 255, 0.08))',
         display: 'flex',
@@ -106,7 +106,7 @@ export default function Sidebar({ isCollapsed, onToggle }) {
         justifyContent: 'space-between',
         transition: 'width 0.2s ease, background-color 0.2s ease, border-color 0.2s ease',
         position: 'sticky',
-        top: 0,
+        top: 'var(--header-height, 56px)',
         zIndex: 40,
         overflowX: 'hidden',
         overflowY: 'auto',

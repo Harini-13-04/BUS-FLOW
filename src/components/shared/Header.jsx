@@ -44,7 +44,7 @@ export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
       }}
     >
       {/* Left: Hamburger + BUSFLOW Official Branding */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '22px' }}>
         {/* Hamburger Menu Toggle */}
         <button
           type="button"
@@ -125,11 +125,12 @@ export default function Header({ isSidebarCollapsed, onToggleSidebar }) {
             </div>
             <span
               style={{
-                fontSize: '0.66rem',
+                fontSize: '0.64rem',
                 fontWeight: 500,
                 color: 'var(--text-secondary, #94a3b8)',
                 letterSpacing: '0.01em',
-                marginTop: '1px'
+                marginTop: '1px',
+                whiteSpace: 'nowrap'
               }}
             >
               Tamil Nadu State Transport
