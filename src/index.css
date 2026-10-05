@@ -1,10 +1,6 @@
 @import './styles/global.css';
 
 :root {
-<<<<<<< HEAD
-  color-scheme: dark;
-}
-=======
   font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color-scheme: dark;
 }
@@ -136,6 +132,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #00e599;
 }
-
-
->>>>>>> 3b4e75566151e08388df1df77bb4eaef9469c0da
